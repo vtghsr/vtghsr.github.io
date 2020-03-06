@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>素数 | MaLing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如何写一个函数：返回区间[2,n)中有几个素数 刚开始我是这么写滴： 原始版本123456789101112def isPrime(n:int):    for i in range(2,n):        if n%i==0:            return False    return Truedef countPrimes(n:int):    count=0    for i in">
+  <meta name="description" content="如何写一个函数：返回区间[2,n)中有几个素数">
 <meta name="keywords" content="素数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="素数">
 <meta property="og:url" content="http://yoursite.com/2020/03/06/素数/index.html">
 <meta property="og:site_name" content="MaLing&#39;s blog">
-<meta property="og:description" content="如何写一个函数：返回区间[2,n)中有几个素数 刚开始我是这么写滴： 原始版本123456789101112def isPrime(n:int):    for i in range(2,n):        if n%i==0:            return False    return Truedef countPrimes(n:int):    count=0    for i in">
+<meta property="og:description" content="如何写一个函数：返回区间[2,n)中有几个素数">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-06T14:54:50.199Z">
+<meta property="og:updated_time" content="2020-03-06T14:59:49.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="素数">
-<meta name="twitter:description" content="如何写一个函数：返回区间[2,n)中有几个素数 刚开始我是这么写滴： 原始版本123456789101112def isPrime(n:int):    for i in range(2,n):        if n%i==0:            return False    return Truedef countPrimes(n:int):    count=0    for i in">
+<meta name="twitter:description" content="如何写一个函数：返回区间[2,n)中有几个素数">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -167,6 +167,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>如何写一个函数：返回区间[2,n)中有几个素数</p>
+<a id="more"></a>
 <p>刚开始我是这么写滴：</p>
 <h2 id="原始版本"><a href="#原始版本" class="headerlink" title="原始版本"></a>原始版本</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n:int)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,n):</span><br><span class="line">        <span class="keyword">if</span> n%i==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">countPrimes</span><span class="params">(n:int)</span>:</span></span><br><span class="line">    count=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,n):</span><br><span class="line">        <span class="keyword">if</span> isPrime(i):</span><br><span class="line">            count+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> count</span><br><span class="line">print(countPrimes(<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
 
