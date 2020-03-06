@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MaLing&#39;s blog</title>
+  <title>素数 | MaLing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[TOC] 如何写一个函数：返回区间[2,n)中有几个素数 刚开始我是这么写滴： 原始版本123456789101112def isPrime(n:int):    for i in range(2,n):        if n%i==0:            return False    return Truedef countPrimes(n:int):    count=0    fo">
+  <meta name="description" content="如何写一个函数：返回区间[2,n)中有几个素数 刚开始我是这么写滴： 原始版本123456789101112def isPrime(n:int):    for i in range(2,n):        if n%i==0:            return False    return Truedef countPrimes(n:int):    count=0    for i in">
+<meta name="keywords" content="素数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MaLing&#39;s blog">
+<meta property="og:title" content="素数">
 <meta property="og:url" content="http://yoursite.com/2020/03/06/素数/index.html">
 <meta property="og:site_name" content="MaLing&#39;s blog">
-<meta property="og:description" content="[TOC] 如何写一个函数：返回区间[2,n)中有几个素数 刚开始我是这么写滴： 原始版本123456789101112def isPrime(n:int):    for i in range(2,n):        if n%i==0:            return False    return Truedef countPrimes(n:int):    count=0    fo">
+<meta property="og:description" content="如何写一个函数：返回区间[2,n)中有几个素数 刚开始我是这么写滴： 原始版本123456789101112def isPrime(n:int):    for i in range(2,n):        if n%i==0:            return False    return Truedef countPrimes(n:int):    count=0    for i in">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-06T14:50:11.957Z">
+<meta property="og:updated_time" content="2020-03-06T14:54:50.199Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaLing&#39;s blog">
-<meta name="twitter:description" content="[TOC] 如何写一个函数：返回区间[2,n)中有几个素数 刚开始我是这么写滴： 原始版本123456789101112def isPrime(n:int):    for i in range(2,n):        if n%i==0:            return False    return Truedef countPrimes(n:int):    count=0    fo">
+<meta name="twitter:title" content="素数">
+<meta name="twitter:description" content="如何写一个函数：返回区间[2,n)中有几个素数 刚开始我是这么写滴： 原始版本123456789101112def isPrime(n:int):    for i in range(2,n):        if n%i==0:            return False    return Truedef countPrimes(n:int):    count=0    for i in">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -148,10 +149,24 @@
             <article id="post-素数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      素数
+    </h1>
+  
+
+        
+        <a href="/2020/03/06/素数/" class="archive-article-date">
+  	<time datetime="2020-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[TOC]</p>
-<p>如何写一个函数：返回区间[2,n)中有几个素数</p>
+        <p>如何写一个函数：返回区间[2,n)中有几个素数</p>
 <p>刚开始我是这么写滴：</p>
 <h2 id="原始版本"><a href="#原始版本" class="headerlink" title="原始版本"></a>原始版本</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(n:int)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,n):</span><br><span class="line">        <span class="keyword">if</span> n%i==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">countPrimes</span><span class="params">(n:int)</span>:</span></span><br><span class="line">    count=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,n):</span><br><span class="line">        <span class="keyword">if</span> isPrime(i):</span><br><span class="line">            count+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> count</span><br><span class="line">print(countPrimes(<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
 
@@ -214,6 +229,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">素数</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -403,6 +429,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">素数</a>
               </li>
             
             <div class="clearfix"></div>
