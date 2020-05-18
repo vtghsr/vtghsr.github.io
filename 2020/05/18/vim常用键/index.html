@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>python变量作用域LEGB | MaLing&#39;s blog</title>
+  <title>vim常用键 | MaLing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LEGB指的是local,enclosing,global,built-in">
-<meta name="keywords" content="python">
+  <meta name="description" content="几种类型的常用键">
+<meta name="keywords" content="vim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python变量作用域LEGB">
-<meta property="og:url" content="http://yoursite.com/2020/03/20/变量作用域/index.html">
+<meta property="og:title" content="vim常用键">
+<meta property="og:url" content="http://yoursite.com/2020/05/18/vim常用键/index.html">
 <meta property="og:site_name" content="MaLing&#39;s blog">
-<meta property="og:description" content="LEGB指的是local,enclosing,global,built-in">
+<meta property="og:description" content="几种类型的常用键">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-20T15:00:36.102Z">
+<meta property="og:updated_time" content="2020-05-18T10:42:15.430Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python变量作用域LEGB">
-<meta name="twitter:description" content="LEGB指的是local,enclosing,global,built-in">
+<meta name="twitter:title" content="vim常用键">
+<meta name="twitter:description" content="几种类型的常用键">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -146,34 +146,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-变量作用域" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vim常用键" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      python变量作用域LEGB
+      vim常用键
     </h1>
   
 
         
-        <a href="/2020/03/20/变量作用域/" class="archive-article-date">
-  	<time datetime="2020-03-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+        <a href="/2020/05/18/vim常用键/" class="archive-article-date">
+  	<time datetime="2020-05-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>LEGB指的是local,enclosing,global,built-in</p>
+        <p>几种类型的常用键</p>
 <a id="more"></a>
 
-<p>今天在学习闭包时，遇到一个问题：利用闭包返回一个计数器函数，每次调用它返回递增整数。正确代码如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createCounter</span><span class="params">()</span>:</span></span><br><span class="line">    i=<span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">nonlocal</span> i</span><br><span class="line">        i+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line">    <span class="keyword">return</span> counter</span><br><span class="line">counterA = createCounter()</span><br><span class="line">print(counterA(), counterA(), counterA(), counterA(), counterA()) <span class="comment"># 1 2 3 4 5</span></span><br><span class="line">counterB = createCounter()</span><br><span class="line"><span class="keyword">if</span> [counterB(), counterB(), counterB(), counterB()] == [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]:</span><br><span class="line">    print(<span class="string">'测试通过!'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'测试失败!'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>刚开始没有把变量i声明为nonlocal，会报错（没对i赋值就引用i），把变量声明为nonlocal后，调用countA()函数的时候，就会去counter()的上一层函数createCounter()中找i，i的作用域就是enclosing</p>
-<p>值得注意的是，当一个函数返回了一个函数后，其内部的局部变量还被新函数引用。</p>
+<h2 id="行间跳转"><a href="#行间跳转" class="headerlink" title="行间跳转"></a>行间跳转</h2><p>nG 第n行</p>
+<p>gg 第一行</p>
+<p>G最后一行</p>
+<p>ctrl+o上一次的位置</p>
+<h2 id="行内跳转"><a href="#行内跳转" class="headerlink" title="行内跳转"></a>行内跳转</h2><p>w 下一个单词开头</p>
+<p>e 当前单词结尾</p>
+<p>b 前一个单词开头</p>
+<p>ge 前一个单词结尾</p>
+<p>0 行头</p>
+<p>$ 行尾</p>
+<p>f&lt;字母&gt;向后搜索&lt;字母&gt;并跳转到第一个匹配位置</p>
+<p>F&lt;字母&gt;向前搜索&lt;字母&gt;并跳转到第一个匹配位置</p>
+<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><p>yy复制整行</p>
+<p>p向后粘贴</p>
+<p>P向前粘贴</p>
+<p>dd剪切</p>
+<p>ddp交换上下行</p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>dw/daw删除一个单词</p>
+<p>dnw删除n个单词</p>
+<p>3dd向下删除3行</p>
+<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>r&lt;字母&gt;将游标所在字母替换成指定字母</p>
+<p>R连续替换直至按下Esc</p>
+<p>cw替换一个英文字，输入完按Esc</p>
+<p>~大小写转换</p>
+<p>u撤销上一次操作</p>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>/&lt;字符串&gt;向下查找</p>
+<p>n查找下一个</p>
+<p>?&lt;字符串&gt;向上查找</p>
+<p>N查找上一个</p>
+<p>命令行模式下输入noh退出查找</p>
+<h2 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h2><p>&gt;&gt;向右缩进</p>
+<p>&lt;&lt;向左</p>
+<p>le左对齐（命令行模式）</p>
+<p>ce居中对齐（命令行模式）</p>
+<p>ri右对齐</p>
 
       
 
@@ -218,7 +248,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vim</a>
         		</li>
       		
 		</ul>
@@ -274,7 +304,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/20/变量作用域/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/18/vim常用键/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +318,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/18/vim常用键/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          vim常用键
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/07/我的日记本儿/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的日记本儿</div>
+    <a href="/2020/03/20/变量作用域/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python变量作用域LEGB</div>
       <i class="icon-circle-right"></i>
     </a>
   
