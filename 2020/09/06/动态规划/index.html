@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>遍历改变的数组 | MaLing&#39;s blog</title>
+  <title>动态规划 | MaLing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如何遍历改变的数组">
-<meta name="keywords" content="python">
+  <meta name="description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="遍历改变的数组">
-<meta property="og:url" content="http://yoursite.com/2020/08/15/遍历改变的数组/index.html">
+<meta property="og:title" content="动态规划">
+<meta property="og:url" content="http://yoursite.com/2020/09/06/动态规划/index.html">
 <meta property="og:site_name" content="MaLing&#39;s blog">
-<meta property="og:description" content="如何遍历改变的数组">
+<meta property="og:description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-15T08:11:05.077Z">
+<meta property="og:updated_time" content="2020-09-06T10:55:05.855Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="遍历改变的数组">
-<meta name="twitter:description" content="如何遍历改变的数组">
+<meta name="twitter:title" content="动态规划">
+<meta name="twitter:description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -146,33 +146,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-遍历改变的数组" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-动态规划" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      遍历改变的数组
+      动态规划
     </h1>
   
 
         
-        <a href="/2020/08/15/遍历改变的数组/" class="archive-article-date">
-  	<time datetime="2020-08-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-15</time>
+        <a href="/2020/09/06/动态规划/" class="archive-article-date">
+  	<time datetime="2020-09-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如何遍历改变的数组</p>
+        <p>动态规划问题思考分为4步：<br>定义状态，思考状态转移方程，思考初始值，思考输出</p>
 <a id="more"></a>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(arr1)<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>):</span><br><span class="line">                <span class="keyword">if</span> arr1[i]==x:</span><br><span class="line">                    res.append(arr1[i])</span><br><span class="line">                    arr1.pop(i)</span><br></pre></td></tr></table></figure>
-
-<p>遍历arr1的时候，arr1元素个数不断减少，如果正着遍历，下标会移除，所以应该倒着遍历</p>
-
+<h2 id="第一步：定义状态"><a href="#第一步：定义状态" class="headerlink" title="第一步：定义状态"></a>第一步：定义状态</h2><p>不同的状态定义会使得转移方程的复杂度不同。</p>
+<p>如<a href="https://leetcode-cn.com/problems/maximum-subarray/" target="_blank" rel="noopener">53.最大子序和</a>中，我自己定义的dp[i]的含义是从下标0开始长度为i的数组的最大子序列，这个定义导致转移方程非常复杂。题解的定义为dp[i]表示以nums[i]结尾的连续子数组的最大和。这样定义的状态方程十分简单。</p>
+<p>怎么想到这么定义的呢？首先一个连续子数组一定要以一个数作为结尾，再者凭经验，和类似的题目<a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">300.最长上升子序列</a></p>
+<h2 id="第二步：思考状态转移方程"><a href="#第二步：思考状态转移方程" class="headerlink" title="第二步：思考状态转移方程"></a>第二步：思考状态转移方程</h2>
       
 
       
@@ -216,7 +215,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -272,7 +271,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/15/遍历改变的数组/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/06/动态规划/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +285,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/08/15/sorted()函数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          sorted()函数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/12/java.sql/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java sql报错</div>
+    <a href="/2020/08/25/Java中char和String转换/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java中char和String转换</div>
       <i class="icon-circle-right"></i>
     </a>
   
