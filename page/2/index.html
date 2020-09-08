@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>动态规划 | MaLing&#39;s blog</title>
+  <title>MaLing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
-<meta name="keywords" content="算法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="动态规划">
-<meta property="og:url" content="http://yoursite.com/2020/09/06/动态规划/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="MaLing&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="MaLing&#39;s blog">
-<meta property="og:description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-06T14:36:40.558Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态规划">
-<meta name="twitter:description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
+<meta name="twitter:title" content="MaLing&#39;s blog">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -146,74 +141,178 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-动态规划" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-vim常用键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      动态规划
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/18/vim常用键/">vim常用键</a>
     </h1>
   
 
         
-        <a href="/2020/09/06/动态规划/" class="archive-article-date">
-  	<time datetime="2020-09-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
+        <a href="/2020/05/18/vim常用键/" class="archive-article-date">
+  	<time datetime="2020-05-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>动态规划问题思考分为4步：<br>定义状态，思考状态转移方程，思考初始值，思考输出</p>
-<a id="more"></a>
-<h2 id="第一步：定义状态"><a href="#第一步：定义状态" class="headerlink" title="第一步：定义状态"></a>第一步：定义状态</h2><p>不同的状态定义会使得转移方程的复杂度不同。</p>
-<p>如<a href="https://leetcode-cn.com/problems/maximum-subarray/" target="_blank" rel="noopener">最大子序和</a>中，我自己定义的dp[i]的含义是从下标0开始长度为i的数组的最大子序列，这个定义导致转移方程非常复杂。题解的定义为dp[i]表示以nums[i]结尾的连续子数组的最大和。这样定义的状态方程十分简单。</p>
-<p>怎么想到这么定义的呢？首先一个<strong>连续子序列一定要以一个数作为结尾</strong>，再者凭经验，和类似的题目<a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">最长上升子序列</a>、<a href="https://leetcode-cn.com/problems/the-masseuse-lcci/" target="_blank" rel="noopener">按摩师</a></p>
-<h2 id="第二步：思考状态转移方程"><a href="#第二步：思考状态转移方程" class="headerlink" title="第二步：思考状态转移方程"></a>第二步：思考状态转移方程</h2><p>状态转移指的是从「状态i-1」转移到「状态i」。</p>
-<p>发生转移的原因是你做了<strong>某种操作</strong>，弄清楚在当前状态下<strong>你可以做哪些操作</strong>对写出状态转移方程很关键。<br>如<a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">买卖股票的最佳时机</a>中，dp[i]表示截止到第i天的最大收益，从状态i-1到状态i，你可以对股票进行两种操作：</p>
-<ul>
-<li>无操作（或者理解成当天买入又卖出）</li>
-<li>卖出</li>
-</ul>
-<p>没有买入操作是因为，截止到第i天的最大收益一定不会持有股票。当进行第一种操作时，截止到第i天的最大收益等于截止到第i-1天的最大收益，即dp[i]=dp[i-1]。</p>
-<p>当进行第二种操作时，最大收益取决于哪一天买入，因此dp[i]=第i天的价格-前i-1天中最小价格。</p>
-<p>因此，转移方程为 前i天的最大收益=max{前i-1天的最大收益，第i天的价格-前i-1天中最小价格}。</p>
+        <p>几种类型的常用键</p>
+        
+          <a class="article-more-a" href="/2020/05/18/vim常用键/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
       
 
       
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-变量作用域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/20/变量作用域/">python变量作用域LEGB</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/20/变量作用域/" class="archive-article-date">
+  	<time datetime="2020-03-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>LEGB指的是local,enclosing,global,built-in</p>
+        
+          <a class="article-more-a" href="/2020/03/20/变量作用域/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-素数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/06/素数/">素数</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/06/素数/" class="archive-article-date">
+  	<time datetime="2020-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如何写一个函数：返回区间[2,n)中有几个素数</p>
+        
+          <a class="article-more-a" href="/2020/03/06/素数/#more">more >></a>
+        
+      
+
       
     </div>
     <div class="article-info article-info-index">
@@ -235,82 +334,10 @@
       
 
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/06/动态规划/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/09/07/回溯/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          回溯
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/08/25/Java中char和String转换/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java中char和String转换</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -330,14 +357,12 @@
 
 
 
-  
-  
-  
 
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -360,8 +385,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

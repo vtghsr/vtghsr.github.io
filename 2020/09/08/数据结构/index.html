@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>动态规划 | MaLing&#39;s blog</title>
+  <title>数据结构 | MaLing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
+  <meta name="description" content="各种数据结构的具体Java实现">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划">
-<meta property="og:url" content="http://yoursite.com/2020/09/06/动态规划/index.html">
+<meta property="og:title" content="数据结构">
+<meta property="og:url" content="http://yoursite.com/2020/09/08/数据结构/index.html">
 <meta property="og:site_name" content="MaLing&#39;s blog">
-<meta property="og:description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
+<meta property="og:description" content="各种数据结构的具体Java实现">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-06T14:36:40.558Z">
+<meta property="og:updated_time" content="2020-09-08T06:46:18.853Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态规划">
-<meta name="twitter:description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
+<meta name="twitter:title" content="数据结构">
+<meta name="twitter:description" content="各种数据结构的具体Java实现">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -146,40 +146,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-动态规划" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-数据结构" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      动态规划
+      数据结构
     </h1>
   
 
         
-        <a href="/2020/09/06/动态规划/" class="archive-article-date">
-  	<time datetime="2020-09-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
+        <a href="/2020/09/08/数据结构/" class="archive-article-date">
+  	<time datetime="2020-09-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>动态规划问题思考分为4步：<br>定义状态，思考状态转移方程，思考初始值，思考输出</p>
+        <p>各种数据结构的具体Java实现</p>
 <a id="more"></a>
-<h2 id="第一步：定义状态"><a href="#第一步：定义状态" class="headerlink" title="第一步：定义状态"></a>第一步：定义状态</h2><p>不同的状态定义会使得转移方程的复杂度不同。</p>
-<p>如<a href="https://leetcode-cn.com/problems/maximum-subarray/" target="_blank" rel="noopener">最大子序和</a>中，我自己定义的dp[i]的含义是从下标0开始长度为i的数组的最大子序列，这个定义导致转移方程非常复杂。题解的定义为dp[i]表示以nums[i]结尾的连续子数组的最大和。这样定义的状态方程十分简单。</p>
-<p>怎么想到这么定义的呢？首先一个<strong>连续子序列一定要以一个数作为结尾</strong>，再者凭经验，和类似的题目<a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">最长上升子序列</a>、<a href="https://leetcode-cn.com/problems/the-masseuse-lcci/" target="_blank" rel="noopener">按摩师</a></p>
-<h2 id="第二步：思考状态转移方程"><a href="#第二步：思考状态转移方程" class="headerlink" title="第二步：思考状态转移方程"></a>第二步：思考状态转移方程</h2><p>状态转移指的是从「状态i-1」转移到「状态i」。</p>
-<p>发生转移的原因是你做了<strong>某种操作</strong>，弄清楚在当前状态下<strong>你可以做哪些操作</strong>对写出状态转移方程很关键。<br>如<a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">买卖股票的最佳时机</a>中，dp[i]表示截止到第i天的最大收益，从状态i-1到状态i，你可以对股票进行两种操作：</p>
-<ul>
-<li>无操作（或者理解成当天买入又卖出）</li>
-<li>卖出</li>
-</ul>
-<p>没有买入操作是因为，截止到第i天的最大收益一定不会持有股票。当进行第一种操作时，截止到第i天的最大收益等于截止到第i-1天的最大收益，即dp[i]=dp[i-1]。</p>
-<p>当进行第二种操作时，最大收益取决于哪一天买入，因此dp[i]=第i天的价格-前i-1天中最小价格。</p>
-<p>因此，转移方程为 前i天的最大收益=max{前i-1天的最大收益，第i天的价格-前i-1天中最小价格}。</p>
+
+<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><h3 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h3><p>用map表示邻接表，key表示图中的点，value表示其邻接点。</p>
+<p>比用数组节省空间，因为只需要存储相邻的点。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Integer,Set&lt;Integer&gt;&gt; graph=<span class="keyword">new</span> HashMap&lt;&gt; ();</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++) &#123;</span><br><span class="line">    		graph.put(i, <span class="keyword">new</span> HashSet&lt;&gt; ());</span><br><span class="line">    	&#125;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -280,7 +273,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/06/动态规划/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/08/数据结构/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -294,18 +287,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/09/07/回溯/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/08/Java基础/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          回溯
+          Java基础
         
       </div>
     </a>
   
   
-    <a href="/2020/08/25/Java中char和String转换/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java中char和String转换</div>
+    <a href="/2020/09/07/回溯/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">回溯</div>
       <i class="icon-circle-right"></i>
     </a>
   

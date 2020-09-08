@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>动态规划 | MaLing&#39;s blog</title>
+  <title>回溯 | MaLing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
+  <meta name="description" content="解决一个回溯问题，实际上就是一个决策树的遍历过程 遇到回溯问题先画出决策树">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划">
-<meta property="og:url" content="http://yoursite.com/2020/09/06/动态规划/index.html">
+<meta property="og:title" content="回溯">
+<meta property="og:url" content="http://yoursite.com/2020/09/07/回溯/index.html">
 <meta property="og:site_name" content="MaLing&#39;s blog">
-<meta property="og:description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
+<meta property="og:description" content="解决一个回溯问题，实际上就是一个决策树的遍历过程 遇到回溯问题先画出决策树">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-06T14:36:40.558Z">
+<meta property="og:updated_time" content="2020-09-07T14:26:38.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态规划">
-<meta name="twitter:description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
+<meta name="twitter:title" content="回溯">
+<meta name="twitter:description" content="解决一个回溯问题，实际上就是一个决策树的遍历过程 遇到回溯问题先画出决策树">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -146,40 +146,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-动态规划" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-回溯" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      动态规划
+      回溯
     </h1>
   
 
         
-        <a href="/2020/09/06/动态规划/" class="archive-article-date">
-  	<time datetime="2020-09-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
+        <a href="/2020/09/07/回溯/" class="archive-article-date">
+  	<time datetime="2020-09-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>动态规划问题思考分为4步：<br>定义状态，思考状态转移方程，思考初始值，思考输出</p>
+        <p><strong>解决一个回溯问题，实际上就是一个决策树的遍历过程</strong></p>
+<p>遇到回溯问题先画出决策树</p>
 <a id="more"></a>
-<h2 id="第一步：定义状态"><a href="#第一步：定义状态" class="headerlink" title="第一步：定义状态"></a>第一步：定义状态</h2><p>不同的状态定义会使得转移方程的复杂度不同。</p>
-<p>如<a href="https://leetcode-cn.com/problems/maximum-subarray/" target="_blank" rel="noopener">最大子序和</a>中，我自己定义的dp[i]的含义是从下标0开始长度为i的数组的最大子序列，这个定义导致转移方程非常复杂。题解的定义为dp[i]表示以nums[i]结尾的连续子数组的最大和。这样定义的状态方程十分简单。</p>
-<p>怎么想到这么定义的呢？首先一个<strong>连续子序列一定要以一个数作为结尾</strong>，再者凭经验，和类似的题目<a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">最长上升子序列</a>、<a href="https://leetcode-cn.com/problems/the-masseuse-lcci/" target="_blank" rel="noopener">按摩师</a></p>
-<h2 id="第二步：思考状态转移方程"><a href="#第二步：思考状态转移方程" class="headerlink" title="第二步：思考状态转移方程"></a>第二步：思考状态转移方程</h2><p>状态转移指的是从「状态i-1」转移到「状态i」。</p>
-<p>发生转移的原因是你做了<strong>某种操作</strong>，弄清楚在当前状态下<strong>你可以做哪些操作</strong>对写出状态转移方程很关键。<br>如<a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">买卖股票的最佳时机</a>中，dp[i]表示截止到第i天的最大收益，从状态i-1到状态i，你可以对股票进行两种操作：</p>
-<ul>
-<li>无操作（或者理解成当天买入又卖出）</li>
-<li>卖出</li>
-</ul>
-<p>没有买入操作是因为，截止到第i天的最大收益一定不会持有股票。当进行第一种操作时，截止到第i天的最大收益等于截止到第i-1天的最大收益，即dp[i]=dp[i-1]。</p>
-<p>当进行第二种操作时，最大收益取决于哪一天买入，因此dp[i]=第i天的价格-前i-1天中最小价格。</p>
-<p>因此，转移方程为 前i天的最大收益=max{前i-1天的最大收益，第i天的价格-前i-1天中最小价格}。</p>
+
+<p>需要思考三个问题：</p>
+<ol>
+<li>路径：也就是当前已经做出的选择</li>
+<li>选择列表：也就是当前可以做的选择</li>
+<li>结束条件，也就是到达决策树底层，无法再做出选择的条件</li>
+</ol>
+<p>回溯算法框架：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">result=[]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtrack</span><span class="params">(路径,选择列表)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> 满足结束条件:</span><br><span class="line">        result.add(路径)</span><br><span class="line">        <span class="keyword">return</span> </span><br><span class="line">    <span class="keyword">for</span> 选择 <span class="keyword">in</span> 选择列表:</span><br><span class="line">        做选择</span><br><span class="line">        backtrack(路径,选择列表)</span><br><span class="line">        撤销选择</span><br></pre></td></tr></table></figure>
+
+<p>核心就是在递归调用之前「做选择 」，在递归调用后「撤销选择」。</p>
+<p>做选择包含两个步骤：</p>
+<ol>
+<li>对路径更新</li>
+<li>对选择列表更新</li>
+</ol>
+<p>问题的难点在于<strong>选择列表的更新</strong>和<strong>结束条件的确定</strong></p>
+<h2 id="选择列表的更新"><a href="#选择列表的更新" class="headerlink" title="选择列表的更新"></a>选择列表的更新</h2><p><a href="https://leetcode-cn.com/problems/subsets/" target="_blank" rel="noopener">子集</a>问题</p>
+<p>根据决策树我们可以看出需要进行剪枝，剪枝的过程即为对选择列表更新的过程。</p>
+<p>观察可以发现，在当前节点只能选择数组中当前节点之后的节点</p>
 
       
 
@@ -280,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/06/动态规划/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/07/回溯/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -294,18 +303,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/09/07/回溯/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/08/数据结构/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          回溯
+          数据结构
         
       </div>
     </a>
   
   
-    <a href="/2020/08/25/Java中char和String转换/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java中char和String转换</div>
+    <a href="/2020/09/06/动态规划/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">动态规划</div>
       <i class="icon-circle-right"></i>
     </a>
   
