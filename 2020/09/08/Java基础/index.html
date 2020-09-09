@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="MaLing&#39;s blog">
 <meta property="og:description" content="刷题过程中遇到的一些知识点">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-08T14:11:28.897Z">
+<meta property="og:updated_time" content="2020-09-09T14:33:34.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础">
 <meta name="twitter:description" content="刷题过程中遇到的一些知识点">
@@ -216,6 +216,12 @@ System.out.println(aaa.equals(bbb));//true</code></pre><p>​        </p>
 
 <p>使用String.format</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> value=<span class="number">2.456</span>;</span><br><span class="line">System.out.println(String.format(<span class="string">"%.2f"</span>, value).toString());</span><br></pre></td></tr></table></figure>
+
+<h2 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h2><p>每次从优先队列队首获取元素时，总是获取优先级最高的元素</p>
+<p>自己定义元素的优先级，经常用于解决top K问题<a href="https://leetcode-cn.com/problems/smallest-k-lcci/" target="_blank" rel="noopener">最小K个数</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;Integer&gt; q=<span class="keyword">new</span> PriorityQueue&lt;&gt; (k,(o1,o2)-&gt;o1-o2);</span><br><span class="line"><span class="comment">//第一个参数k是优先队列初始化大小</span></span><br><span class="line"><span class="comment">//第二个参数是一个lambda表达式，用于定义元素的优先级</span></span><br><span class="line"><span class="comment">//-&gt;前面的括号里是函数参数，-&gt;后是返回值，返回值&lt;0为o1优先于o2</span></span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -328,6 +334,15 @@ System.out.println(aaa.equals(bbb));//true</code></pre><p>​        </p>
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/09/09/排序算法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          排序算法
+        
+      </div>
+    </a>
   
   
     <a href="/2020/09/08/数据结构/" id="article-nav-older" class="article-nav-link-wrap">
@@ -457,7 +472,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,7 +480,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
