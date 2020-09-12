@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="MaLing&#39;s blog">
 <meta property="og:description" content="刷题过程中遇到的一些知识点">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-09T14:33:34.760Z">
+<meta property="og:updated_time" content="2020-09-12T00:39:08.169Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础">
 <meta name="twitter:description" content="刷题过程中遇到的一些知识点">
@@ -172,6 +172,9 @@
 <p>[TOC]</p>
 <h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"><span class="keyword">int</span> num=in.nextInt();<span class="comment">//接收数字,以空格或回车分割</span></span><br><span class="line">in.nextLine();<span class="comment">//nextInt()等与nextline()一起使用必须过滤回车</span></span><br><span class="line">String str=in.nextLine();<span class="comment">//接收一整行,包括空格</span></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//读取一行文本，当遇到'\n'和'\r'结束</span></span><br><span class="line">BufferedReader bf=<span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">String s=bf.readLine();</span><br></pre></td></tr></table></figure>
+
+<p>第二种方法比第一种快，适合输入数据很长时使用</p>
 <h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>多个结果中间用空格连接，结尾无空格</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; ls=List.of(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>);</span><br><span class="line">System.out.println(String.join(<span class="string">" "</span>, ls));</span><br></pre></td></tr></table></figure>
 
@@ -221,6 +224,17 @@ System.out.println(aaa.equals(bbb));//true</code></pre><p>​        </p>
 <p>自己定义元素的优先级，经常用于解决top K问题<a href="https://leetcode-cn.com/problems/smallest-k-lcci/" target="_blank" rel="noopener">最小K个数</a></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;Integer&gt; q=<span class="keyword">new</span> PriorityQueue&lt;&gt; (k,(o1,o2)-&gt;o1-o2);</span><br><span class="line"><span class="comment">//第一个参数k是优先队列初始化大小</span></span><br><span class="line"><span class="comment">//第二个参数是一个lambda表达式，用于定义元素的优先级</span></span><br><span class="line"><span class="comment">//-&gt;前面的括号里是函数参数，-&gt;后是返回值，返回值&lt;0为o1优先于o2</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="重写equals和hashCode"><a href="#重写equals和hashCode" class="headerlink" title="重写equals和hashCode"></a>重写equals和hashCode</h2><h3 id="List重写equals"><a href="#List重写equals" class="headerlink" title="List重写equals"></a>List重写equals</h3><p>使用List里的contains方法会发现一些问题：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="keyword">int</span>[]&gt; ls=<span class="keyword">new</span> ArrayList&lt;&gt; ();</span><br><span class="line"><span class="keyword">int</span>[] a= &#123;<span class="number">1</span>,<span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] b= &#123;<span class="number">1</span>,<span class="number">2</span>&#125;;</span><br><span class="line">ls.add(a);</span><br><span class="line">System.out.println(ls.contains(b));<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="keyword">int</span>[]&gt; ls=<span class="keyword">new</span> ArrayList&lt;&gt; ();</span><br><span class="line"><span class="keyword">int</span>[] a= &#123;<span class="number">1</span>,<span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] b= a;</span><br><span class="line">ls.add(a);</span><br><span class="line">System.out.println(ls.contains(b));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>两种结果不一样，因为contains方法比较的是两个对象引用，简而言之就是看两个对象是否地址相同。</p>
+<p>查看ArrayList的contains源码可以发现其调用了equals方法，所以我们可以通过重写equals达到我们想要的效果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	<span class="keyword">int</span> y;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.x=x;</span><br><span class="line">		<span class="keyword">this</span>.y=y;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">		Point p=(Point) obj;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.x==p.x &amp;&amp; <span class="keyword">this</span>.y==p.y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Map重写equals和hashCode"><a href="#Map重写equals和hashCode" class="headerlink" title="Map重写equals和hashCode"></a>Map重写equals和hashCode</h3><p>使用Map时，如果我们放入的key是自己写的类，必须重写equals方法和hashCode方法</p>
+<p><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1265117217944672" target="_blank" rel="noopener">重写方法</a></p>
 
       
 
@@ -472,15 +486,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
