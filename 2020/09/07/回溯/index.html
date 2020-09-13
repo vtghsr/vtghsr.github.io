@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="MaLing&#39;s blog">
 <meta property="og:description" content="解决一个回溯问题，实际上就是一个决策树的遍历过程 遇到回溯问题先画出决策树">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-07T14:26:38.115Z">
+<meta property="og:updated_time" content="2020-09-13T03:25:53.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回溯">
 <meta name="twitter:description" content="解决一个回溯问题，实际上就是一个决策树的遍历过程 遇到回溯问题先画出决策树">
@@ -189,6 +189,9 @@
 <h2 id="选择列表的更新"><a href="#选择列表的更新" class="headerlink" title="选择列表的更新"></a>选择列表的更新</h2><p><a href="https://leetcode-cn.com/problems/subsets/" target="_blank" rel="noopener">子集</a>问题</p>
 <p>根据决策树我们可以看出需要进行剪枝，剪枝的过程即为对选择列表更新的过程。</p>
 <p>观察可以发现，在当前节点只能选择数组中当前节点之后的节点</p>
+<h2 id="结束条件"><a href="#结束条件" class="headerlink" title="结束条件"></a>结束条件</h2><p>注意回溯问题分为两种，一种需要搜索到所有正确的问题，一种只需要判断是否存在正确解。</p>
+<p>对于第一种情况，backtrack可以没有返回值，设置一个res变量，将所有正确解添加到res中。</p>
+<p>对于第二种情况，backtrack要设置返回布尔值，在某一搜索节点，找到一条正确路径后，就返回，详见<a href="https://leetcode-cn.com/problems/word-search/solution/zai-er-wei-ping-mian-shang-shi-yong-hui-su-fa-pyth/" target="_blank" rel="noopener">单词搜索</a></p>
 
       
 
@@ -444,11 +447,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
