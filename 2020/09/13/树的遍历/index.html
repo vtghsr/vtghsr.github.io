@@ -17,7 +17,7 @@
 <meta property="og:description" content="主要内容：  二叉树的遍历（先序、中序、后序、广度优先遍历）的递归和迭代实现 二叉树的深度，二叉树到叶子节点的所有路径">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/1670274/201906/1670274-20190625162830381-1161054077.png">
-<meta property="og:updated_time" content="2020-09-13T14:38:07.306Z">
+<meta property="og:updated_time" content="2020-09-14T14:29:26.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树的遍历及其基本操作">
 <meta name="twitter:description" content="主要内容：  二叉树的遍历（先序、中序、后序、广度优先遍历）的递归和迭代实现 二叉树的深度，二叉树到叶子节点的所有路径">
@@ -229,6 +229,17 @@
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root==<span class="keyword">null</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> Math.max(<span class="keyword">this</span>.maxDepth(root.left), <span class="keyword">this</span>.maxDepth(root.right))+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="构建二叉树"><a href="#构建二叉树" class="headerlink" title="构建二叉树"></a>构建二叉树</h2><p>根据前序和中序可以构造一棵二叉树，根据后序和中序也可以构造一棵二叉树，反正必须要有中序才能构建。因为没有中序，无法确定树的形状。例如先序为[1,2]，后序为[2,1]的树可以有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  1</span><br><span class="line"> /</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line"> \</span><br><span class="line">  2</span><br></pre></td></tr></table></figure>
+
+<p>二叉树题目的思路大多是递归，就是划分子问题，然后递归地构建左子树和右子树。</p>
+<p>后序遍历最后一个节点为整棵树的根节点，因此可以确定根节点。</p>
+<p>再根据中序序列得到左子树的中序序列和右子树的中序序列。</p>
+<p>不管中序还是后序，左右子树的节点个数是相同的，因此可以得到左子树和右子树的后序序列。</p>
+<p>递归地构建左右子树。</p>
+<p>代码见<a href="https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/" target="_blank" rel="noopener">从中序与后序遍历序列构造二叉树</a></p>
 
       
 
@@ -467,11 +478,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
