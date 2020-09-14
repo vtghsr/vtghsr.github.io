@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>vim常用键 | MaLing&#39;s blog</title>
+  <title>树的遍历及其基本操作 | MaLing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="几种类型的常用键">
-<meta name="keywords" content="工具">
+  <meta name="description" content="主要内容：  二叉树的遍历（先序、中序、后序、广度优先遍历）的递归和迭代实现 二叉树的深度，二叉树到叶子节点的所有路径">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vim常用键">
-<meta property="og:url" content="http://yoursite.com/2020/05/18/vim常用键/index.html">
+<meta property="og:title" content="树的遍历及其基本操作">
+<meta property="og:url" content="http://yoursite.com/2020/09/13/树的遍历/index.html">
 <meta property="og:site_name" content="MaLing&#39;s blog">
-<meta property="og:description" content="几种类型的常用键">
+<meta property="og:description" content="主要内容：  二叉树的遍历（先序、中序、后序、广度优先遍历）的递归和迭代实现 二叉树的深度，二叉树到叶子节点的所有路径">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-06T12:05:53.805Z">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1670274/201906/1670274-20190625162830381-1161054077.png">
+<meta property="og:updated_time" content="2020-09-13T14:38:07.306Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vim常用键">
-<meta name="twitter:description" content="几种类型的常用键">
+<meta name="twitter:title" content="树的遍历及其基本操作">
+<meta name="twitter:description" content="主要内容：  二叉树的遍历（先序、中序、后序、广度优先遍历）的递归和迭代实现 二叉树的深度，二叉树到叶子节点的所有路径">
+<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1670274/201906/1670274-20190625162830381-1161054077.png">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -146,64 +148,87 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vim常用键" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-树的遍历" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      vim常用键
+      树的遍历及其基本操作
     </h1>
   
 
         
-        <a href="/2020/05/18/vim常用键/" class="archive-article-date">
-  	<time datetime="2020-05-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
+        <a href="/2020/09/13/树的遍历/" class="archive-article-date">
+  	<time datetime="2020-09-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>几种类型的常用键</p>
+        <p>主要内容：</p>
+<ol>
+<li>二叉树的遍历（先序、中序、后序、广度优先遍历）的递归和迭代实现</li>
+<li>二叉树的深度，二叉树到叶子节点的所有路径</li>
+</ol>
 <a id="more"></a>
 
-<h2 id="行间跳转"><a href="#行间跳转" class="headerlink" title="行间跳转"></a>行间跳转</h2><p>nG 第n行</p>
-<p>gg 第一行</p>
-<p>G最后一行</p>
-<p>ctrl+o上一次的位置</p>
-<h2 id="行内跳转"><a href="#行内跳转" class="headerlink" title="行内跳转"></a>行内跳转</h2><p>w 下一个单词开头</p>
-<p>e 当前单词结尾</p>
-<p>b 前一个单词开头</p>
-<p>ge 前一个单词结尾</p>
-<p>0 行头</p>
-<p>$ 行尾</p>
-<p>f&lt;字母&gt;向后搜索&lt;字母&gt;并跳转到第一个匹配位置</p>
-<p>F&lt;字母&gt;向前搜索&lt;字母&gt;并跳转到第一个匹配位置</p>
-<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><p>yy复制整行</p>
-<p>p向后粘贴</p>
-<p>P向前粘贴</p>
-<p>dd剪切</p>
-<p>ddp交换上下行</p>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>dw/daw删除一个单词</p>
-<p>dnw删除n个单词</p>
-<p>3dd向下删除3行</p>
-<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>r&lt;字母&gt;将游标所在字母替换成指定字母</p>
-<p>R连续替换直至按下Esc</p>
-<p>cw替换一个英文字，输入完按Esc</p>
-<p>~大小写转换</p>
-<p>u撤销上一次操作</p>
-<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>/&lt;字符串&gt;向下查找</p>
-<p>n查找下一个</p>
-<p>?&lt;字符串&gt;向上查找</p>
-<p>N查找上一个</p>
-<p>命令行模式下输入noh退出查找</p>
-<h2 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h2><p>&gt;&gt;向右缩进</p>
-<p>&lt;&lt;向左</p>
-<p>le左对齐（命令行模式）</p>
-<p>ce居中对齐（命令行模式）</p>
-<p>ri右对齐</p>
+<p>首先，定义二叉树类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,x)</span>:</span></span><br><span class="line">        self.val=x</span><br><span class="line">        self.left=<span class="literal">None</span></span><br><span class="line">        self.right=<span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;<span class="comment">//树</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>[TOC]</p>
+<p>二叉树的遍历分为深度优先遍历（dfs）和广度优先遍历(bfs)。其中深度优先遍历又分为先序遍历、中序遍历、后序遍历。bfs又称为层次遍历。</p>
+<ul>
+<li>dfs的迭代实现用stack</li>
+<li>bfs的迭代实现用queue</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/1670274/201906/1670274-20190625162830381-1161054077.png" alt="img"></p>
+<h2 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h2><p><a href="https://leetcode-cn.com/problems/surrounded-regions/" target="_blank" rel="noopener">被围绕的区域</a></p>
+<h3 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h3><p>遍历顺序：根节点——左孩子——右孩子(A-B-D-E-C-F)</p>
+<p>递归实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">preorder</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    print(root.val)</span><br><span class="line">    preorder(root.left)</span><br><span class="line">    preorder(root.right)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root==<span class="keyword">null</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	System.out.println(root.val);</span><br><span class="line">	<span class="keyword">this</span>.preorder(root.left);</span><br><span class="line">	<span class="keyword">this</span>.preorder(root.right);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>迭代实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">preorder</span><span class="params">(root)</span>:</span></span><br><span class="line">    stack=[root]</span><br><span class="line">    <span class="keyword">while</span> stack:</span><br><span class="line">        s=stack.pop(<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">if</span> s:</span><br><span class="line">            print(s.val)</span><br><span class="line">            stack.append(s.right)</span><br><span class="line">            stack.append(s.left)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preorder</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	Deque&lt;TreeNode&gt; st=<span class="keyword">new</span> LinkedList&lt;&gt; ();</span><br><span class="line">	st.addFirst(root);</span><br><span class="line">	<span class="keyword">while</span> (!st.isEmpty()) &#123;</span><br><span class="line">		TreeNode s=st.pollFirst();</span><br><span class="line">		<span class="keyword">if</span> (s!=<span class="keyword">null</span>) &#123;</span><br><span class="line">			System.out.println(s.val);</span><br><span class="line">			st.addFirst(s.right);</span><br><span class="line">			st.addFirst(s.left);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><p>遍历顺序：左孩子——根节点——右孩子(D-B-E-A-C-F）</p>
+<p>递归实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inorder</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">not</span> root):</span><br><span class="line">        <span class="keyword">return</span> </span><br><span class="line">    inorder(root.left)</span><br><span class="line">    print(root.val)</span><br><span class="line">    inorder(root.right)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root==<span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">this</span>.inorder(root.left);</span><br><span class="line">	System.out.println(root.val);</span><br><span class="line">	<span class="keyword">this</span>.inorder(root.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>迭代实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inorder</span><span class="params">(root)</span>:</span></span><br><span class="line">    stack=[]</span><br><span class="line">    <span class="keyword">while</span> stack <span class="keyword">or</span> root:</span><br><span class="line">        <span class="keyword">while</span> root:<span class="comment">#下行循环，直到找到第一个叶子节点</span></span><br><span class="line">            stack.append(root)</span><br><span class="line">            root=root.left</span><br><span class="line">        root=stack.pop(<span class="number">-1</span>)</span><br><span class="line">        print(root.val)</span><br><span class="line">        root=root.right</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	Deque&lt;TreeNode&gt; st=<span class="keyword">new</span> LinkedList&lt;&gt; ();</span><br><span class="line">	<span class="keyword">while</span> (!st.isEmpty() || root!=<span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="keyword">while</span> (root!=<span class="keyword">null</span>) &#123;</span><br><span class="line">			st.addFirst(root);</span><br><span class="line">			root=root.left;</span><br><span class="line">		&#125;</span><br><span class="line">		root=st.pollFirst();</span><br><span class="line">		System.out.println(root.val);</span><br><span class="line">		root=root.right;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><p>遍历顺序：左孩子——右孩子——根节点(D-E-B-F-C-A）</p>
+<p>递归实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">postorder</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">not</span> root):</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    postorder(root.left)</span><br><span class="line">    postorder(root.right)</span><br><span class="line">    print(root.val)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postorder</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root==<span class="keyword">null</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">this</span>.postorder(root.left);</span><br><span class="line">	<span class="keyword">this</span>.postorder(root.right);</span><br><span class="line">	System.out.println(root.val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>迭代实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">postorder</span><span class="params">(root)</span>:</span></span><br><span class="line">    stack=[]</span><br><span class="line">    <span class="keyword">while</span> stack <span class="keyword">or</span> root:</span><br><span class="line">        <span class="keyword">while</span> root:<span class="comment">#下行循环，直到找到第一个叶子节点</span></span><br><span class="line">            stack.append(root)</span><br><span class="line">            <span class="keyword">if</span> root.left:<span class="comment">#左孩子压栈、没左孩子就右孩子压栈</span></span><br><span class="line">                root=root.left</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                root=root.right</span><br><span class="line">        s=stack.pop(<span class="number">-1</span>)</span><br><span class="line">        print(s.val)</span><br><span class="line">        <span class="comment">#如果当前节点是栈顶节点的左孩子，则遍历右孩子</span></span><br><span class="line">        <span class="keyword">if</span> stack <span class="keyword">and</span> s==stack[<span class="number">-1</span>].left:</span><br><span class="line">            root=stack[<span class="number">-1</span>].right</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            root=<span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h3><p>遍历顺序：一层层地遍历（A-B-C-D-E-F）</p>
+<p>迭代实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span><span class="params">(root)</span>:</span></span><br><span class="line">    queue=[root]</span><br><span class="line">    <span class="keyword">while</span> queue:</span><br><span class="line">        n=len(queue)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            q=queue.pop(<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">if</span> q:</span><br><span class="line">                print(q.val)</span><br><span class="line">                queue.append(q.left <span class="keyword">if</span> q.left <span class="keyword">else</span> <span class="literal">None</span>)</span><br><span class="line">                queue.append(q.right <span class="keyword">if</span> q.right <span class="keyword">else</span> <span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bfs</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root==<span class="keyword">null</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	Queue&lt;TreeNode&gt; q=<span class="keyword">new</span> LinkedList&lt;&gt; ();</span><br><span class="line">	q.offer(root);</span><br><span class="line">	<span class="keyword">while</span> (!q.isEmpty()) &#123;</span><br><span class="line">		<span class="keyword">int</span> n=q.size();</span><br><span class="line">		<span class="keyword">while</span> (n&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			TreeNode node=q.poll();</span><br><span class="line">			System.out.println(node.val);</span><br><span class="line">			<span class="keyword">if</span> (node.left!=<span class="keyword">null</span>) &#123;</span><br><span class="line">				q.offer(node.left);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (node.right!=<span class="keyword">null</span>) &#123;</span><br><span class="line">				q.offer(node.right);</span><br><span class="line">			&#125;</span><br><span class="line">			n--;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>+max(maxDepth(root.left),maxDepth(root.right))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (root==<span class="keyword">null</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> Math.max(<span class="keyword">this</span>.maxDepth(root.left), <span class="keyword">this</span>.maxDepth(root.right))+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -248,7 +273,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -304,7 +329,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/18/vim常用键/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/13/树的遍历/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -318,18 +343,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/09/git基本用法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          git基本用法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/20/变量作用域/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python变量作用域LEGB</div>
+    <a href="/2020/09/09/排序算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">排序算法</div>
       <i class="icon-circle-right"></i>
     </a>
   
