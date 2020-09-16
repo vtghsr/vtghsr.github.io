@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | MaLing&#39;s blog</title>
+  <title>dfs | MaLing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MaLing&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/2020/page/2/index.html">
+  <meta name="description" content="[TOC] 深度优先搜索(dfs)的题目分为两种类型：  搜索完所有节点后结束  搜索到可行解后就结束">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dfs">
+<meta property="og:url" content="http://yoursite.com/2020/09/16/dfs算法/index.html">
 <meta property="og:site_name" content="MaLing&#39;s blog">
+<meta property="og:description" content="[TOC] 深度优先搜索(dfs)的题目分为两种类型：  搜索完所有节点后结束  搜索到可行解后就结束">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="c:%5CUsers%5Cmaling%5CDesktop%5C%E5%9B%BE%E7%89%87%5CQQ%E5%9B%BE%E7%89%8720200916153921.jpg">
+<meta property="og:image" content="c:%5CUsers%5Cmaling%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200916110306291.png">
+<meta property="og:updated_time" content="2020-09-16T07:40:56.506Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaLing&#39;s blog">
+<meta name="twitter:title" content="dfs">
+<meta name="twitter:description" content="[TOC] 深度优先搜索(dfs)的题目分为两种类型：  搜索完所有节点后结束  搜索到可行解后就结束">
+<meta name="twitter:image" content="c:%5CUsers%5Cmaling%5CDesktop%5C%E5%9B%BE%E7%89%87%5CQQ%E5%9B%BE%E7%89%8720200916153921.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -141,226 +149,103 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-dfs算法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      dfs
+    </h1>
+  
+
+        
+        <a href="/2020/09/16/dfs算法/" class="archive-article-date">
+  	<time datetime="2020-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<p>深度优先搜索(dfs)的题目分为两种类型：</p>
+<ol>
+<li><p>搜索完所有节点后结束</p>
+</li>
+<li><p>搜索到可行解后就结束</p>
+ <a id="more"></a>
+
+</li>
+</ol>
+<p>两类问题的区别就在于第二类问题dfs函数用一个布尔类型的返回值来标记是否找到答案，一旦找到一个解就     不再继续。至于第一类问题的返回值，根据问题要求解的问题定义</p>
+<p>两类问题的框架中值得注意的地方有：</p>
+<ul>
+<li>用数组mark（或其他形式）标记搜索过的点，搜索到某一个点，标记当前点为「已搜索」</li>
+<li>当多次调用dfs时，每次调用结束后都要重置mark。因为，上次搜索过的点，在新一轮搜索过还没搜过。</li>
+</ul>
+<p>接下来，就这两种类型分别介绍相关的题目</p>
+<h2 id="类型一：搜索完所有节点后结束"><a href="#类型一：搜索完所有节点后结束" class="headerlink" title="类型一：搜索完所有节点后结束"></a>类型一：搜索完所有节点后结束</h2><p>第一类问题可以概括为「求连通区域大小问题」</p>
+<p>找一个点所在的连通区域，思想就是从这个点出发，寻找四周联通的点，再从这些点出发递归地找，直到不存在符合条件的点。</p>
+<p>这类问题，题目大致意思都是要你「一直找…直到没有符合要求的点」</p>
+<p>框架：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mark=[false,false...]//用来标记在一轮搜素中每个节点是否已被搜索过</span><br><span class="line"><span class="function"><span class="keyword">def</span> 主函数:</span></span><br><span class="line">    <span class="keyword">for</span> 起点列表:</span><br><span class="line">        dfs(起点)</span><br><span class="line">        重置mark</span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(当前节点)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> 当前节点不合法:</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> 当前节点搜索过:</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    标记当前节点为已搜索</span><br><span class="line">    <span class="keyword">for</span> 选择列表:</span><br><span class="line">        dfs(子节点)</span><br></pre></td></tr></table></figure>
+
+<h3 id="水域大小"><a href="#水域大小" class="headerlink" title="水域大小"></a>水域大小</h3><p><a href="https://leetcode-cn.com/problems/pond-sizes-lcci/" target="_blank" rel="noopener">水域大小</a></p>
+<p>这个问题里没有另开mark数组来标记搜索过的点，而是通过修改当前节点值来标记。</p>
+<p>两种形式目的是相同的，试想如果不标记搜索过的点，那么会出现StackOverFlow的错误，用树表示就是：</p>
+<p><img src="C:%5CUsers%5Cmaling%5CDesktop%5C%E5%9B%BE%E7%89%87%5CQQ%E5%9B%BE%E7%89%8720200916153921.jpg" alt></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> r;</span><br><span class="line">	<span class="keyword">int</span> c;</span><br><span class="line">	<span class="keyword">int</span>[][] land;</span><br><span class="line">	<span class="keyword">int</span>[][] dirs= &#123;&#123;<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,<span class="number">1</span>&#125;,&#123;-<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,-<span class="number">1</span>&#125;,&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;,&#123;<span class="number">1</span>,<span class="number">1</span>&#125;,&#123;<span class="number">1</span>,-<span class="number">1</span>&#125;,&#123;-<span class="number">1</span>,<span class="number">1</span>&#125;&#125;;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] pondSizes(<span class="keyword">int</span>[][] land) &#123;</span><br><span class="line">    	r=land.length;</span><br><span class="line">    	c=land[<span class="number">0</span>].length;</span><br><span class="line">    	<span class="keyword">this</span>.land=land.clone();</span><br><span class="line">    	List&lt;Integer&gt; res=<span class="keyword">new</span> ArrayList&lt;&gt; ();</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;r;i++) &#123;</span><br><span class="line">    		<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;c;j++) &#123;</span><br><span class="line">    			<span class="keyword">int</span> pondSize=dfs(i,j);</span><br><span class="line">    			<span class="keyword">if</span> (pondSize&gt;<span class="number">0</span>) &#123;</span><br><span class="line">    				res.add(pondSize);</span><br><span class="line">    			&#125;</span><br><span class="line">    			<span class="keyword">this</span>.land=land.clone();<span class="comment">//注意将上次调用dfs标记的-1给抹除</span></span><br><span class="line">    			</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	Integer[] ans=res.toArray(<span class="keyword">new</span> Integer[res.size()]);</span><br><span class="line">    	Arrays.sort(ans);</span><br><span class="line">    	<span class="keyword">int</span>[] fi=<span class="keyword">new</span> <span class="keyword">int</span>[res.size()];</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ans.length;i++) &#123;</span><br><span class="line">    		fi[i]=ans[i];</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> fi;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span> (!inArea(x, y) || land[x][y]!=<span class="number">0</span>) &#123;</span><br><span class="line">    		<span class="comment">//包含不合法的点（不在区域内的点、不是陆地的点）以及已经搜索过的点（-1的点）</span></span><br><span class="line">    		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	land[x][y]=-<span class="number">1</span>;<span class="comment">//用来标记当前节点已被搜索过，不用另外开数组来标记了</span></span><br><span class="line">    	<span class="keyword">int</span> sum=<span class="number">1</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span>[] dir:dirs) &#123;</span><br><span class="line">    		<span class="keyword">int</span> newX=x+dir[<span class="number">0</span>];</span><br><span class="line">    		<span class="keyword">int</span> newY=y+dir[<span class="number">1</span>];</span><br><span class="line">    		sum+=dfs(newX,newY);</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">inArea</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> x&gt;=<span class="number">0</span> &amp;&amp; x&lt;r &amp;&amp; y&gt;=<span class="number">0</span> &amp;&amp; y&lt;c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="扫雷游戏"><a href="#扫雷游戏" class="headerlink" title="扫雷游戏"></a>扫雷游戏</h3><p><a href="https://leetcode-cn.com/problems/minesweeper/" target="_blank" rel="noopener">扫雷游戏</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> r;</span><br><span class="line">	<span class="keyword">int</span> c;</span><br><span class="line">	<span class="keyword">char</span>[][] board;</span><br><span class="line">	<span class="keyword">int</span>[][] dirs= &#123;&#123;<span class="number">0</span>,<span class="number">1</span>&#125;,&#123;<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;-<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,-<span class="number">1</span>&#125;,&#123;<span class="number">1</span>,<span class="number">1</span>&#125;,&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;,&#123;<span class="number">1</span>,-<span class="number">1</span>&#125;,&#123;-<span class="number">1</span>,<span class="number">1</span>&#125;&#125;;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">char</span>[][] updateBoard(<span class="keyword">char</span>[][] board, <span class="keyword">int</span>[] click) &#123;</span><br><span class="line">    	r=board.length;</span><br><span class="line">    	c=board[<span class="number">0</span>].length;</span><br><span class="line">    	<span class="keyword">this</span>.board=board;</span><br><span class="line">    	dfs(click[<span class="number">0</span>],click[<span class="number">1</span>]);</span><br><span class="line">    	<span class="keyword">return</span> board;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span> (!inArea(x, y)) &#123;<span class="comment">//不合法的点</span></span><br><span class="line">    		<span class="keyword">return</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">if</span> (board[x][y]==<span class="string">'M'</span>) &#123;<span class="comment">//不合法的点</span></span><br><span class="line">    		board[x][y]=<span class="string">'X'</span>;</span><br><span class="line">    		<span class="keyword">return</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">if</span> (board[x][y]==<span class="string">'B'</span> || (board[x][y]&gt;=<span class="number">49</span> &amp;&amp; board[x][y]&lt;=<span class="number">56</span>)) &#123;<span class="comment">//已搜索过的点</span></span><br><span class="line">    		<span class="keyword">return</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">int</span> count=<span class="number">0</span>;<span class="comment">//E周围的地雷数量</span></span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span>[] dir:dirs) &#123;</span><br><span class="line">    		<span class="keyword">int</span> newX=x+dir[<span class="number">0</span>];</span><br><span class="line">    		<span class="keyword">int</span> newY=y+dir[<span class="number">1</span>];</span><br><span class="line">    		<span class="keyword">if</span> (inArea(newX, newY) &amp;&amp; board[x+dir[<span class="number">0</span>]][y+dir[<span class="number">1</span>]]==<span class="string">'M'</span>) &#123;</span><br><span class="line">    			count++;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">if</span> (count!=<span class="number">0</span>) &#123;<span class="comment">//标记当前节点为已搜索过的点</span></span><br><span class="line">    		board[x][y]=(<span class="keyword">char</span>) (count+<span class="number">48</span>);</span><br><span class="line">    	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    		board[x][y]=<span class="string">'B'</span>;<span class="comment">//标记当前节点为已搜索过的点</span></span><br><span class="line">    		<span class="keyword">for</span> (<span class="keyword">int</span>[] dir:dirs) &#123;</span><br><span class="line">    			<span class="keyword">int</span> newX=x+dir[<span class="number">0</span>];</span><br><span class="line">    			<span class="keyword">int</span> newY=y+dir[<span class="number">1</span>];</span><br><span class="line">    			dfs(newX,newY);</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">inArea</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> x&gt;=<span class="number">0</span> &amp;&amp; x&lt;r &amp;&amp; y&gt;=<span class="number">0</span> &amp;&amp; y&lt;c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="I’m-stuck"><a href="#I’m-stuck" class="headerlink" title="I’m stuck"></a>I’m stuck</h3><p><img src="C:%5CUsers%5Cmaling%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200916110306291.png" alt="image-20200916110306291"></p>
+<p>对于这道题目的第一个子问题：找可以从初始位置S到达的方格个数，就属于dfs里的类型一。</p>
+<p>思路：从S开始搜索，设置一个R*C的数组表示能否从S到达当前节点。</p>
+<p>AC代码：</p>
+<h2 id="类型二：搜索到可行解后就结束"><a href="#类型二：搜索到可行解后就结束" class="headerlink" title="类型二：搜索到可行解后就结束"></a>类型二：搜索到可行解后就结束</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mark=[false,false...]//用来标记在一轮搜素中每个节点是否已被搜索过</span><br><span class="line"><span class="function"><span class="keyword">def</span> 主函数:</span></span><br><span class="line">    <span class="keyword">for</span> 起点列表:</span><br><span class="line">        dfs(起点)</span><br><span class="line">        重置mark</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(当前节点)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> 当前节点不合法:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span>;</span><br><span class="line">    <span class="keyword">if</span> 当前节点搜索过:</span><br><span class="line">        <span class="keyword">return</span> 当前节点的结果</span><br><span class="line">    标记当前节点为已搜索</span><br><span class="line">    <span class="keyword">for</span> 选择列表:</span><br><span class="line">        <span class="keyword">if</span> dfs(子节点):</span><br><span class="line">            记录当前节点结果为<span class="literal">True</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    记录当前结果为<span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span>;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/12/java.sql/" class="archive-article-date">
-  	<time datetime="2020-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/12/java.sql/">java sql报错</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/09/git基本用法/" class="archive-article-date">
-  	<time datetime="2020-07-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/09/git基本用法/">git基本用法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/09/Vue前后端通信错误/" class="archive-article-date">
-  	<time datetime="2020-07-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/09/Vue前后端通信错误/">Vue前后端通信错误</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/18/vim常用键/" class="archive-article-date">
-  	<time datetime="2020-05-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/18/vim常用键/">vim常用键</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/20/变量作用域/" class="archive-article-date">
-  	<time datetime="2020-03-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/20/变量作用域/">python变量作用域LEGB</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/06/素数/" class="archive-article-date">
-  	<time datetime="2020-03-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/06/素数/">素数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -372,22 +257,105 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/16/dfs算法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/09/13/树的遍历/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">树的遍历及其基本操作</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/">&laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -411,8 +379,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
