@@ -17,7 +17,7 @@
 <meta property="og:description" content="主要内容：  二叉树的遍历（先序、中序、后序、广度优先遍历）的递归和迭代实现 二叉树的深度，二叉树到叶子节点的所有路径">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/1670274/201906/1670274-20190625162830381-1161054077.png">
-<meta property="og:updated_time" content="2020-09-19T11:37:03.837Z">
+<meta property="og:updated_time" content="2020-09-21T00:50:24.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树的遍历及其基本操作">
 <meta name="twitter:description" content="主要内容：  二叉树的遍历（先序、中序、后序、广度优先遍历）的递归和迭代实现 二叉树的深度，二叉树到叶子节点的所有路径">
@@ -243,6 +243,10 @@
 <p>递归：树的左叶子之和=左子树的左叶子之和+右子树的左叶子之和+当前叶子节点的值（如果当前节点是父节点的左孩子）</p>
 <p>重点在于判断当前节点是不是其父节点的左孩子，因此在递归函数中传入参数dir来表示左孩子/右孩子</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumOfLeftLeaves</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> leftSum(root, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">leftSum</span><span class="params">(TreeNode root,<span class="keyword">int</span> dir)</span> </span>&#123;<span class="comment">//0代表是左孩子，1是右孩子</span></span><br><span class="line">    	<span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">if</span> (root==<span class="keyword">null</span>) &#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">if</span> (root.left==<span class="keyword">null</span> &amp;&amp; root.right==<span class="keyword">null</span> &amp;&amp; dir==<span class="number">0</span>) &#123;</span><br><span class="line">    		<span class="keyword">return</span> root.val;</span><br><span class="line">    	&#125;</span><br><span class="line">    	sum+=leftSum(root.left, <span class="number">0</span>);</span><br><span class="line">    	sum+=leftSum(root.right, <span class="number">1</span>);</span><br><span class="line">    	<span class="keyword">return</span> sum;</span><br><span class="line">    	</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="把二叉搜索树转换为累加树"><a href="#把二叉搜索树转换为累加树" class="headerlink" title="把二叉搜索树转换为累加树"></a>把二叉搜索树转换为累加树</h3><p><a href="https://leetcode-cn.com/problems/convert-bst-to-greater-tree/" target="_blank" rel="noopener">把二叉搜索树转换为累加树</a></p>
+<p>BST中序遍历是升序排列，反过来就是降序，然后累加到当前节点上即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">convertBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span> (root==<span class="keyword">null</span>)</span><br><span class="line">    		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    	convertBST(root.right);</span><br><span class="line">    	root.val+=num;</span><br><span class="line">        num=root.val;</span><br><span class="line">    	convertBST(root.left);</span><br><span class="line">    	<span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="构建二叉树"><a href="#构建二叉树" class="headerlink" title="构建二叉树"></a>构建二叉树</h2><p>根据前序和中序可以构造一棵二叉树，根据后序和中序也可以构造一棵二叉树，反正必须要有中序才能构建。因为没有中序，无法确定树的形状。例如先序为[1,2]，后序为[2,1]的树可以有：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  1</span><br><span class="line"> /</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
@@ -510,7 +514,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,7 +522,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
             
             <div class="clearfix"></div>

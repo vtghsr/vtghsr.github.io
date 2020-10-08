@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>排序算法 | MaLing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="几种常见的排序算法">
+  <meta name="description" content="[TOC] 几种常见的排序算法">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序算法">
 <meta property="og:url" content="http://yoursite.com/2020/09/09/排序算法/index.html">
 <meta property="og:site_name" content="MaLing&#39;s blog">
-<meta property="og:description" content="几种常见的排序算法">
+<meta property="og:description" content="[TOC] 几种常见的排序算法">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-09T11:10:20.937Z">
+<meta property="og:updated_time" content="2020-10-04T14:16:22.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法">
-<meta name="twitter:description" content="几种常见的排序算法">
+<meta name="twitter:description" content="[TOC] 几种常见的排序算法">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -166,7 +166,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>几种常见的排序算法</p>
+        <p>[TOC]</p>
+<p>几种常见的排序算法</p>
 <a id="more"></a>
 
 <h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><ol>
@@ -174,6 +175,13 @@
 <li>对基准数前的子数组递归排序，对基准数后的子数组递归排序</li>
 </ol>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sort</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (left&gt;right) &#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> pivot=arr[left];<span class="comment">//pivot存的就是基准数</span></span><br><span class="line">		<span class="keyword">int</span> i=left;</span><br><span class="line">		<span class="keyword">int</span> j=right;</span><br><span class="line">		<span class="keyword">while</span> (i!=j) &#123;</span><br><span class="line">			<span class="comment">//从右往左找小于基准数的数</span></span><br><span class="line">			<span class="keyword">while</span> (arr[j]&gt;=pivot &amp;&amp; i&lt;j) &#123;</span><br><span class="line">				j--;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//从左往右找大于基准数的数</span></span><br><span class="line">			<span class="keyword">while</span> (arr[i]&lt;=pivot &amp;&amp; i&lt;j) &#123;</span><br><span class="line">				i++;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (i&lt;j) &#123;</span><br><span class="line">				<span class="keyword">int</span> temp=arr[i];</span><br><span class="line">				arr[i]=arr[j];</span><br><span class="line">				arr[j]=temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">        <span class="comment">//当i遇到j的时候，说明i(j)左边的数都小于arr[i]了，i右边的数都大于arr[i]了</span></span><br><span class="line">		arr[left]=arr[i];</span><br><span class="line">		arr[i]=pivot;</span><br><span class="line">		<span class="keyword">this</span>.quickSort(arr, left, i-<span class="number">1</span>);<span class="comment">//递归出理基准左边的</span></span><br><span class="line">		<span class="keyword">this</span>.quickSort(arr, i+<span class="number">1</span>, right);<span class="comment">//递归处理基准右边的</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p><a href="https://cuijiahua.com/blog/2018/01/algorithm_6.html" target="_blank" rel="noopener">图解</a></p>
+<h3 id="基本思想-1"><a href="#基本思想-1" class="headerlink" title="基本思想"></a>基本思想</h3><ol>
+<li>根据初始序列<strong>构建初始（大顶）堆</strong>，保证父节点都比它的孩子节点数值大</li>
+<li>每次<strong>交换堆的第一个元素（根）和最后一个元素</strong>，输出最后一个元素（最大值），然后把剩下元素（除去最后一个元素）重新调整为大顶堆</li>
+</ol>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">HeadSort</span><span class="params">(input_list)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Function:堆排序（升序）</span></span><br><span class="line"><span class="string">    Parameters:input_list-待排序列表</span></span><br><span class="line"><span class="string">    Returns:sorted_list-升序排列的列表</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">HeadAdjust</span><span class="params">(input_list, parent, length)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        Function:堆调整，调整为大顶堆</span></span><br><span class="line"><span class="string">        Parameters:</span></span><br><span class="line"><span class="string">            input_list-待排序列表</span></span><br><span class="line"><span class="string">            parent-堆的父节点</span></span><br><span class="line"><span class="string">            length-数组长度</span></span><br><span class="line"><span class="string">        Returns:无</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        temp = input_list[parent]</span><br><span class="line">        child = <span class="number">2</span>*parent+<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> child &lt; length:</span><br><span class="line">            <span class="keyword">if</span> child+<span class="number">1</span>&lt;length <span class="keyword">and</span> input_list[child]&lt;input_list[child+<span class="number">1</span>]:<span class="comment">#找孩子节点中较大值</span></span><br><span class="line">                child+=<span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> temp&gt;=input_list[child]:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            input_list[parent]=input_list[child]</span><br><span class="line">            parent=child<span class="comment">#往下查看是否需要调整</span></span><br><span class="line">            child=<span class="number">2</span>*parent+<span class="number">1</span></span><br><span class="line">        input_list[parent]=temp</span><br><span class="line">    <span class="keyword">if</span> len(input_list)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    sorted_list=input_list</span><br><span class="line">    length=len(sorted_list)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,length//<span class="number">2</span>)[::<span class="number">-1</span>]:<span class="comment">#构造初始堆</span></span><br><span class="line">        HeadAdjust(sorted_list,i,length)</span><br><span class="line">    print(<span class="string">'初始堆:'</span>,sorted_list)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,length)[::<span class="number">-1</span>]:<span class="comment">#堆调整</span></span><br><span class="line">        temp=sorted_list[j]</span><br><span class="line">        sorted_list[j]=sorted_list[<span class="number">0</span>]</span><br><span class="line">        sorted_list[<span class="number">0</span>]=temp</span><br><span class="line">        HeadAdjust(sorted_list,<span class="number">0</span>,j)</span><br><span class="line">        print(<span class="string">'第%d趟排序:'</span>%(length-j),end=<span class="string">' '</span>)</span><br><span class="line">        print(sorted_list)</span><br><span class="line">    <span class="keyword">return</span> sorted_list</span><br><span class="line"></span><br><span class="line">input_list=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">9</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">0</span>]</span><br><span class="line">print(<span class="string">'排序前:'</span>,input_list)</span><br><span class="line">sorted_list=HeadSort(input_list)</span><br><span class="line">print(<span class="string">'排序后:'</span>,sorted_list)</span><br></pre></td></tr></table></figure>
 
 
       
@@ -430,7 +438,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -438,7 +446,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
             
             <div class="clearfix"></div>
