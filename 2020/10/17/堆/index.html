@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | MaLing&#39;s blog</title>
+  <title>堆 | MaLing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MaLing&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="堆(Heap)是一个可以被看成近似完全二叉树的数组。树上的每一个节点对应数组的一个元素。除了最底层外，该树是完全充满的，而且是从左到右填充。   大顶堆：父节点的值大于等于左右孩子的值 小顶堆：父节点的值小于等于左右孩子的值">
+<meta name="keywords" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="堆">
+<meta property="og:url" content="http://yoursite.com/2020/10/17/堆/index.html">
 <meta property="og:site_name" content="MaLing&#39;s blog">
+<meta property="og:description" content="堆(Heap)是一个可以被看成近似完全二叉树的数组。树上的每一个节点对应数组的一个元素。除了最底层外，该树是完全充满的，而且是从左到右填充。   大顶堆：父节点的值大于等于左右孩子的值 小顶堆：父节点的值小于等于左右孩子的值">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-10-17T02:36:37.848Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaLing&#39;s blog">
+<meta name="twitter:title" content="堆">
+<meta name="twitter:description" content="堆(Heap)是一个可以被看成近似完全二叉树的数组。树上的每一个节点对应数组的一个元素。除了最底层外，该树是完全充满的，而且是从左到右填充。   大顶堆：父节点的值大于等于左右孩子的值 小顶堆：父节点的值小于等于左右孩子的值">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -141,36 +146,80 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-堆" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/17/堆/" class="archive-article-date">
-  	<time datetime="2020-10-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/17/堆/">堆</a>
+    <h1 class="article-title" itemprop="name">
+      堆
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/10/17/堆/" class="archive-article-date">
+  	<time datetime="2020-10-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>堆(Heap)是一个可以被看成近似完全二叉树的数组。树上的每一个节点对应数组的一个元素。除了最底层外，该树是完全充满的，而且是从左到右填充。</p>
+</blockquote>
+<ul>
+<li>大顶堆：父节点的值大于等于左右孩子的值</li>
+<li>小顶堆：父节点的值小于等于左右孩子的值<a id="more"></a>
+堆常见的操作：</li>
+<li>createHeap建堆：把一个乱序的数组变成堆结构的数组</li>
+<li>insert：把一个数值放入已经是堆结构的数组中，并保持堆结构</li>
+<li>deleteTop：从大顶堆中取出最大值或从最小堆中取出最小值，并将剩余的数组保持堆结构</li>
+<li>heapSort：借由createHeap和deleteTop对数组进行排序</li>
+</ul>
+<p>堆结构的一个常见应用是建立优先队列(Priority Queue)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Heap</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n, input_list)</span>:</span></span><br><span class="line">        self.n = n  <span class="comment"># 元素个数</span></span><br><span class="line">        self.maxn = <span class="number">100</span>  <span class="comment"># 元素最大个数</span></span><br><span class="line">        self.heap = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(self.maxn)]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, n+<span class="number">1</span>):</span><br><span class="line">            self.heap[i] = input_list[i<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">downAdjust</span><span class="params">(self, low, high)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        对heap数组在[low,high]范围进行从上到小调整</span></span><br><span class="line"><span class="string">        low为欲调整节点的数组下标，high一般为堆的最后一个元素的数组下标</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        i = low  <span class="comment"># i为欲调整的节点</span></span><br><span class="line">        j = <span class="number">2</span>*i  <span class="comment"># j为其左孩子</span></span><br><span class="line">        <span class="keyword">while</span> j &lt;= high:  <span class="comment"># 存在孩子节点</span></span><br><span class="line">            <span class="keyword">if</span> j+<span class="number">1</span> &lt;= high <span class="keyword">and</span> self.heap[j+<span class="number">1</span>] &gt; self.heap[j]:  <span class="comment"># 当右孩子存在且右孩子大于左孩子</span></span><br><span class="line">                j = j+<span class="number">1</span>  <span class="comment"># 此时j为右孩子</span></span><br><span class="line">            <span class="keyword">if</span> self.heap[j] &gt; self.heap[i]:  <span class="comment"># 孩子中较大值大于父亲节点</span></span><br><span class="line">                self.heap[i], self.heap[j] = self.heap[j], self.heap[i]  <span class="comment"># 交换</span></span><br><span class="line">                i = j  <span class="comment"># 继续向下调整</span></span><br><span class="line">                j = <span class="number">2</span>*i</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">upAdjust</span><span class="params">(self, low, high)</span>:</span></span><br><span class="line">        i = high  <span class="comment"># i为待调整节点</span></span><br><span class="line">        j = i//<span class="number">2</span>  <span class="comment"># j为其父节点</span></span><br><span class="line">        <span class="keyword">while</span> j &gt;= low:</span><br><span class="line">            <span class="keyword">if</span> self.heap[j] &lt; self.heap[i]:</span><br><span class="line">                self.heap[i], self.heap[j] = self.heap[j], self.heap[i]</span><br><span class="line">                i = j</span><br><span class="line">                j = i//<span class="number">2</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">createHeap</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''建堆'''</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.n//<span class="number">2</span>, <span class="number">0</span>, <span class="number">-1</span>):</span><br><span class="line">            self.downAdjust(i, self.n)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteTop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''删除堆顶'''</span></span><br><span class="line">        self.heap[<span class="number">1</span>] = self.heap[self.n]</span><br><span class="line">        self.n -= <span class="number">1</span></span><br><span class="line">        self.downAdjust(<span class="number">1</span>, self.n)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="string">'''添加元素'''</span></span><br><span class="line">        self.n += <span class="number">1</span></span><br><span class="line">        self.heap[self.n] = x</span><br><span class="line">        self.upAdjust(<span class="number">1</span>, self.n)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">heapSort</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.createHeap()  <span class="comment"># 此时堆顶是最大元素</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.n, <span class="number">0</span>, <span class="number">-1</span>):</span><br><span class="line">            self.heap[<span class="number">1</span>], self.heap[i] = self.heap[i], self.heap[<span class="number">1</span>]</span><br><span class="line">            self.downAdjust(<span class="number">1</span>, i<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">input_list = [<span class="number">85</span>, <span class="number">55</span>, <span class="number">82</span>, <span class="number">57</span>, <span class="number">68</span>, <span class="number">92</span>, <span class="number">99</span>, <span class="number">98</span>, <span class="number">66</span>, <span class="number">56</span>]</span><br><span class="line">h = Heap(len(input_list), input_list)</span><br><span class="line">h.heapSort()</span><br><span class="line">print(h.heap)</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -182,364 +231,105 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/10/17/堆/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/21/bfs/" class="archive-article-date">
-  	<time datetime="2020-09-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/09/21/bfs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">bfs</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/21/bfs/">bfs</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/20/字符串/" class="archive-article-date">
-  	<time datetime="2020-09-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/20/字符串/">字符串</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/16/dfs算法/" class="archive-article-date">
-  	<time datetime="2020-09-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/16/dfs算法/">dfs</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/13/树的遍历及其基本操作/" class="archive-article-date">
-  	<time datetime="2020-09-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/13/树的遍历及其基本操作/">树的遍历及其基本操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/09/排序算法/" class="archive-article-date">
-  	<time datetime="2020-09-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/09/排序算法/">排序算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/08/Java基础/" class="archive-article-date">
-  	<time datetime="2020-09-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/08/Java基础/">Java基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/08/数据结构/" class="archive-article-date">
-  	<time datetime="2020-09-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/08/数据结构/">数据结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/07/回溯/" class="archive-article-date">
-  	<time datetime="2020-09-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/07/回溯/">回溯</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/06/动态规划/" class="archive-article-date">
-  	<time datetime="2020-09-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/06/动态规划/">动态规划</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -563,8 +353,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
