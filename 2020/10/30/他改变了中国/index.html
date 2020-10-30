@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java基础 | MaLing&#39;s blog</title>
+  <title>他改变了中国 | MaLing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="刷题过程中遇到的一些知识点">
-<meta name="keywords" content="Java">
+  <meta name="description" content="书名：《他改变了中国》作者： Robert Lawrence Kuhn">
+<meta name="keywords" content="读书笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java基础">
-<meta property="og:url" content="http://yoursite.com/2020/09/08/Java基础/index.html">
+<meta property="og:title" content="他改变了中国">
+<meta property="og:url" content="http://yoursite.com/2020/10/30/他改变了中国/index.html">
 <meta property="og:site_name" content="MaLing&#39;s blog">
-<meta property="og:description" content="刷题过程中遇到的一些知识点">
+<meta property="og:description" content="书名：《他改变了中国》作者： Robert Lawrence Kuhn">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-20T13:17:58.770Z">
+<meta property="og:updated_time" content="2020-10-30T13:44:11.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java基础">
-<meta name="twitter:description" content="刷题过程中遇到的一些知识点">
+<meta name="twitter:title" content="他改变了中国">
+<meta name="twitter:description" content="书名：《他改变了中国》作者： Robert Lawrence Kuhn">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -146,96 +146,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java基础" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-他改变了中国" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java基础
+      他改变了中国
     </h1>
   
 
         
-        <a href="/2020/09/08/Java基础/" class="archive-article-date">
-  	<time datetime="2020-09-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-08</time>
+        <a href="/2020/10/30/他改变了中国/" class="archive-article-date">
+  	<time datetime="2020-10-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>刷题过程中遇到的一些知识点</p>
+        <p><strong>书名</strong>：《他改变了中国》<br><strong>作者</strong>： Robert Lawrence Kuhn</p>
 <a id="more"></a>
 
-<p>[TOC]</p>
-<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"><span class="keyword">int</span> num=in.nextInt();<span class="comment">//接收数字,以空格或回车分割</span></span><br><span class="line">in.nextLine();<span class="comment">//nextInt()等与nextline()一起使用必须过滤回车</span></span><br><span class="line">String str=in.nextLine();<span class="comment">//接收一整行,包括空格</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//读取一行文本，当遇到'\n'和'\r'结束</span></span><br><span class="line">BufferedReader bf=<span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">String s=bf.readLine();</span><br></pre></td></tr></table></figure>
-
-<p>第二种方法比第一种快，适合输入数据很长时使用</p>
-<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>多个结果中间用空格连接，结尾无空格</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; ls=List.of(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>);</span><br><span class="line">System.out.println(String.join(<span class="string">" "</span>, ls));</span><br></pre></td></tr></table></figure>
-
-<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="String转为char"><a href="#String转为char" class="headerlink" title="String转为char"></a>String转为char</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//String.charAt(index)</span></span><br><span class="line"><span class="comment">//得到String中某一位置的char</span></span><br><span class="line">String s=<span class="string">"Hi!"</span>;</span><br><span class="line"><span class="keyword">char</span> c=s.charAt(<span class="number">2</span>);</span><br><span class="line">System.out.println(c);</span><br><span class="line"></span><br><span class="line"><span class="comment">//String.toCharArray()</span></span><br><span class="line"><span class="comment">//得到包含整个String的char数组</span></span><br><span class="line"><span class="comment">//这样可以通过索引访问String中任意位置的元素</span></span><br><span class="line"><span class="keyword">char</span>[] chars=s.toCharArray();</span><br><span class="line">System.out.println(chars);</span><br><span class="line">System.out.println(chars[<span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
-
-<h3 id="char转为String"><a href="#char转为String" class="headerlink" title="char转为String"></a>char转为String</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String s=String.valueOf(<span class="string">'a'</span>);<span class="comment">//效率最高</span></span><br><span class="line">String s=String.valueOf(<span class="keyword">new</span> <span class="keyword">char</span>[] &#123;<span class="string">'H'</span>,<span class="string">'i'</span>,<span class="string">'!'</span>&#125;);</span><br><span class="line">String s=Character.toString(<span class="string">'b'</span>);</span><br><span class="line">String s=<span class="keyword">new</span> Character(<span class="string">'c'</span>).toString();</span><br><span class="line">String s=<span class="string">""</span>+<span class="string">'d'</span>;<span class="comment">//虽然简单，但是效率最低</span></span><br><span class="line">String s=<span class="keyword">new</span> String(<span class="keyword">new</span> <span class="keyword">char</span>[] &#123;<span class="string">'e'</span>&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="String转为int"><a href="#String转为int" class="headerlink" title="String转为int"></a>String转为int</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s=<span class="string">"123"</span>;</span><br><span class="line"><span class="keyword">int</span> x=Integer.valueOf(s);</span><br><span class="line">System.out.println(x);</span><br></pre></td></tr></table></figure>
-
-<h3 id="int转为String"><a href="#int转为String" class="headerlink" title="int转为String"></a>int转为String</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x=<span class="number">123</span>;</span><br><span class="line">String s=String.valueOf(x);</span><br><span class="line">System.out.println(s);</span><br></pre></td></tr></table></figure>
-
-<h3 id="List转为Array"><a href="#List转为Array" class="headerlink" title="List转为Array"></a>List转为Array</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = List.of(<span class="number">12</span>, <span class="number">34</span>, <span class="number">56</span>);</span><br><span class="line">Integer[] array = list.toArray(<span class="keyword">new</span> Integer[<span class="number">3</span>]);</span><br><span class="line"><span class="keyword">for</span> (Integer n : array) &#123;</span><br><span class="line">	System.out.println(n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Array转为List"><a href="#Array转为List" class="headerlink" title="Array转为List"></a>Array转为List</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] array = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br><span class="line">List&lt;Integer&gt; list = List.of(array);</span><br></pre></td></tr></table></figure>
-
-<h3 id="字符转为Ascii码"><a href="#字符转为Ascii码" class="headerlink" title="字符转为Ascii码"></a>字符转为Ascii码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c=<span class="string">'a'</span>;</span><br><span class="line"><span class="keyword">int</span> x=(<span class="keyword">int</span>) c;</span><br><span class="line">System.out.println(x);</span><br></pre></td></tr></table></figure>
-
-<h3 id="Ascii码转为字符"><a href="#Ascii码转为字符" class="headerlink" title="Ascii码转为字符"></a>Ascii码转为字符</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x=<span class="number">97</span>;</span><br><span class="line"><span class="keyword">char</span> c=(<span class="keyword">char</span>) x;</span><br><span class="line">System.out.println(c);</span><br></pre></td></tr></table></figure>
-
-<h3 id="数字字符转为整型数字"><a href="#数字字符转为整型数字" class="headerlink" title="数字字符转为整型数字"></a>数字字符转为整型数字</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c=<span class="string">'1'</span>;</span><br><span class="line"><span class="keyword">int</span> x=c-<span class="number">48</span>;</span><br><span class="line">System.out.println(x);</span><br></pre></td></tr></table></figure>
-
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="降序"><a href="#降序" class="headerlink" title="降序"></a>降序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] arr = &#123;<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">6</span>, <span class="number">5</span>&#125;;</span><br><span class="line">Arrays.sort(arr,Collections.reverseOrder());</span><br></pre></td></tr></table></figure>
-
-<h2 id="和equals"><a href="#和equals" class="headerlink" title="==和equals"></a>==和equals</h2><p>==是判断两个变量是不是指向同一个内存空间</p>
-<p>equals是判断两个变量指向的值是否相同</p>
-<pre><code>Integer A=new Integer(5);
-Integer B=new Integer(5);
-System.out.println(A==B);//false
-System.out.println(A.equals(B));//true
-
-Integer aaa=5;
-Integer bbb=5;
-System.out.println(aaa==bbb);//true
-System.out.println(aaa.equals(bbb));//true</code></pre><p>​        </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b=<span class="number">10</span>;</span><br><span class="line">System.out.println(a==b);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">String s1=<span class="keyword">new</span> String(<span class="string">"justice"</span>);</span><br><span class="line">String s2=<span class="keyword">new</span> String(<span class="string">"justice"</span>);<span class="comment">//和s1不同地址</span></span><br><span class="line">String s3=s1;<span class="comment">//和s1同一地址</span></span><br><span class="line"></span><br><span class="line">System.out.println(s1==s2);<span class="comment">//false</span></span><br><span class="line">System.out.println(s1.equals(s2));<span class="comment">//true</span></span><br><span class="line">System.out.println(s1==s3);<span class="comment">//true</span></span><br><span class="line">System.out.println(s1.equals(s3));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="大数"><a href="#大数" class="headerlink" title="大数"></a>大数</h2><p>别忘记import java.math.BigInteger </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Scanner sc=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">BigInteger A=sc.nextBigInteger();<span class="comment">//输入一个大整数</span></span><br><span class="line">BigInteger B=BigInteger.TEN;<span class="comment">//BigInteger中的常数</span></span><br><span class="line">BigInteger C=BigInteger.valueOf(<span class="number">2</span>);<span class="comment">//用int赋初值</span></span><br><span class="line">BigInteger D=<span class="keyword">new</span> BigInteger(<span class="string">"5"</span>);<span class="comment">//用字符串构造大整数</span></span><br><span class="line">BigInteger E=<span class="keyword">new</span> BigInteger(<span class="string">"1001"</span>, <span class="number">2</span>);<span class="comment">//根据指定基数的字符串构造</span></span><br><span class="line">System.out.println(E);</span><br><span class="line">System.out.println(A.add(B));<span class="comment">//加法</span></span><br><span class="line">System.out.println(A.subtract(B));<span class="comment">//减法</span></span><br><span class="line">System.out.println(A.multiply(B));<span class="comment">//乘法</span></span><br><span class="line">System.out.println(A.divide(B));<span class="comment">//除法</span></span><br><span class="line">System.out.println(A.remainder(B));<span class="comment">//取余</span></span><br><span class="line">BigInteger[] dar=A.divideAndRemainder(B);<span class="comment">//dar[0]=A/B,dar[1]=A%B</span></span><br><span class="line">System.out.println(dar[<span class="number">0</span>]+<span class="string">" "</span>+dar[<span class="number">1</span>]);</span><br><span class="line">System.out.println(A.pow(<span class="number">3</span>));<span class="comment">//幂运算</span></span><br><span class="line">System.out.println(A.or(B));<span class="comment">//或</span></span><br><span class="line">System.out.println(A.compareTo(B));<span class="comment">//根据&lt; = &gt;返回-1 0 1</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="保留小数"><a href="#保留小数" class="headerlink" title="保留小数"></a>保留小数</h2><p>使用BigDecimal</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BigDecimal bd=<span class="keyword">new</span> BigDecimal(<span class="number">2.456</span>);</span><br><span class="line">bd=bd.setScale(<span class="number">2</span>, RoundingMode.HALF_UP);<span class="comment">//可选择多种保留方式，此种是四舍五入</span></span><br></pre></td></tr></table></figure>
-
-<p>使用String.format</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> value=<span class="number">2.456</span>;</span><br><span class="line">System.out.println(String.format(<span class="string">"%.2f"</span>, value).toString());</span><br></pre></td></tr></table></figure>
-
-<h2 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h2><p>每次从优先队列队首获取元素时，总是获取优先级最高的元素</p>
-<p>自己定义元素的优先级，经常用于解决top K问题<a href="https://leetcode-cn.com/problems/smallest-k-lcci/" target="_blank" rel="noopener">最小K个数</a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;Integer&gt; q=<span class="keyword">new</span> PriorityQueue&lt;&gt; (k,(o1,o2)-&gt;o1-o2);</span><br><span class="line"><span class="comment">//第一个参数k是优先队列初始化大小</span></span><br><span class="line"><span class="comment">//第二个参数是一个lambda表达式，用于定义元素的优先级</span></span><br><span class="line"><span class="comment">//-&gt;前面的括号里是函数参数，-&gt;后是返回值，返回值&lt;0为o1优先于o2</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="重写equals和hashCode"><a href="#重写equals和hashCode" class="headerlink" title="重写equals和hashCode"></a>重写equals和hashCode</h2><h3 id="List重写equals"><a href="#List重写equals" class="headerlink" title="List重写equals"></a>List重写equals</h3><p>使用List里的contains方法会发现一些问题：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="keyword">int</span>[]&gt; ls=<span class="keyword">new</span> ArrayList&lt;&gt; ();</span><br><span class="line"><span class="keyword">int</span>[] a= &#123;<span class="number">1</span>,<span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] b= &#123;<span class="number">1</span>,<span class="number">2</span>&#125;;</span><br><span class="line">ls.add(a);</span><br><span class="line">System.out.println(ls.contains(b));<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;<span class="keyword">int</span>[]&gt; ls=<span class="keyword">new</span> ArrayList&lt;&gt; ();</span><br><span class="line"><span class="keyword">int</span>[] a= &#123;<span class="number">1</span>,<span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] b= a;</span><br><span class="line">ls.add(a);</span><br><span class="line">System.out.println(ls.contains(b));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<p>两种结果不一样，因为contains方法比较的是两个对象引用，简而言之就是看两个对象是否地址相同。</p>
-<p>查看ArrayList的contains源码可以发现其调用了equals方法，所以我们可以通过重写equals达到我们想要的效果。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	<span class="keyword">int</span> y;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.x=x;</span><br><span class="line">		<span class="keyword">this</span>.y=y;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">		Point p=(Point) obj;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.x==p.x &amp;&amp; <span class="keyword">this</span>.y==p.y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Map重写equals和hashCode"><a href="#Map重写equals和hashCode" class="headerlink" title="Map重写equals和hashCode"></a>Map重写equals和hashCode</h3><p>使用Map时，如果我们放入的key是自己写的类，必须重写equals方法和hashCode方法</p>
-<p><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1265117217944672" target="_blank" rel="noopener">重写方法</a></p>
-<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1304066130968610" target="_blank" rel="noopener">廖雪峰Java正则表达式</a></p>
+<h2 id="总结感悟"><a href="#总结感悟" class="headerlink" title="总结感悟"></a>总结感悟</h2><h2 id="摘抄"><a href="#摘抄" class="headerlink" title="摘抄"></a>摘抄</h2><blockquote>
+<p>对在20世纪80年代崛起的江泽民等“第三代”领导人来说，在工厂的工作经历被证明是他们提升的关键。这与前两代领导人形成鲜明对比，在邓小平的“第二代”个人升迁是靠戎马生涯和军功取得的，而毛的“第一代”则致力于创立思想体系，创造出了中国特色的马克思列宁主义。</p>
+</blockquote>
+<blockquote>
+<p>他已经开始养成他特有的那种处事方式：关注上级的兴趣，同时关注下属的需要</p>
+</blockquote>
 
       
 
@@ -280,7 +219,7 @@ System.out.println(aaa.equals(bbb));//true</code></pre><p>​        </p>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
         		</li>
       		
 		</ul>
@@ -336,7 +275,7 @@ System.out.println(aaa.equals(bbb));//true</code></pre><p>​        </p>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/08/Java基础/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/10/30/他改变了中国/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -350,18 +289,9 @@ System.out.println(aaa.equals(bbb));//true</code></pre><p>​        </p>
   
 <nav id="article-nav">
   
-    <a href="/2020/09/09/排序算法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          排序算法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/09/08/数据结构/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数据结构</div>
+    <a href="/2020/10/17/堆/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">堆</div>
       <i class="icon-circle-right"></i>
     </a>
   
