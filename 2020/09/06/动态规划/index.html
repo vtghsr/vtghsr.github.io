@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="MaLing&#39;s blog">
 <meta property="og:description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-20T02:27:53.149Z">
+<meta property="og:updated_time" content="2020-11-11T03:44:18.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态规划">
 <meta name="twitter:description" content="动态规划问题思考分为4步：定义状态，思考状态转移方程，思考初始值，思考输出">
@@ -190,6 +190,7 @@
 <h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><p><a href="https://leetcode-cn.com/problems/longest-common-subsequence/" target="_blank" rel="noopener">最长公共子序列</a></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestCommonSubsequence</span><span class="params">(String text1, String text2)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> len1=text1.length();</span><br><span class="line">    	<span class="keyword">int</span> len2=text2.length();</span><br><span class="line">    	<span class="keyword">int</span>[][] dp=<span class="keyword">new</span> <span class="keyword">int</span>[len1][len2];</span><br><span class="line">    	<span class="keyword">if</span> (text1.charAt(<span class="number">0</span>)==text2.charAt(<span class="number">0</span>))</span><br><span class="line">    		dp[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len1;i++) &#123;</span><br><span class="line">    		<span class="keyword">if</span> (text1.charAt(i)!=text2.charAt(<span class="number">0</span>))</span><br><span class="line">    			dp[i][<span class="number">0</span>]=dp[i-<span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">    		<span class="keyword">else</span></span><br><span class="line">    			dp[i][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;len2;j++) &#123;</span><br><span class="line">    		<span class="keyword">if</span> (text1.charAt(<span class="number">0</span>)!=text2.charAt(j))</span><br><span class="line">    			dp[<span class="number">0</span>][j]=dp[<span class="number">0</span>][j-<span class="number">1</span>];</span><br><span class="line">    		<span class="keyword">else</span></span><br><span class="line">    			dp[<span class="number">0</span>][j]=<span class="number">1</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len1;i++) &#123;</span><br><span class="line">    		<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len2;j++) &#123;</span><br><span class="line">    			<span class="keyword">if</span> (i==<span class="number">0</span> || j==<span class="number">0</span>)</span><br><span class="line">    				<span class="keyword">continue</span>;</span><br><span class="line">    			<span class="keyword">if</span> (text1.charAt(i)==text2.charAt(j))</span><br><span class="line">    				dp[i][j]=dp[i-<span class="number">1</span>][j-<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">    			<span class="keyword">else</span> </span><br><span class="line">    				dp[i][j]=Math.max(dp[i-<span class="number">1</span>][j], dp[i][j-<span class="number">1</span>]);</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> dp[len1-<span class="number">1</span>][len2-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="自由之路"><a href="#自由之路" class="headerlink" title="自由之路"></a>自由之路</h3><p><a href="https://leetcode-cn.com/problems/freedom-trail/" target="_blank" rel="noopener">自由之路</a></p>
 
       
 
@@ -445,7 +446,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">观影</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -453,11 +458,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">读书</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
