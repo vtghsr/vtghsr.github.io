@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="MaLing&#39;s blog">
 <meta property="og:description" content="几种类型的常用键 一些基本命令">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-09-06T12:05:47.938Z">
+<meta property="og:updated_time" content="2021-01-26T04:55:32.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git基本用法">
 <meta name="twitter:description" content="几种类型的常用键 一些基本命令">
@@ -181,7 +181,8 @@
 <p>添加所有文件</p>
 <h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$git commit -m &quot;提交信息&quot;</span><br></pre></td></tr></table></figure>
 
-<h2 id="远端推送"><a href="#远端推送" class="headerlink" title="远端推送"></a>远端推送</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$git remote add origin git@gitee.com:vtghsr/NEU-EDU-HIS.git </span><br><span class="line">$git push -u origin master</span><br></pre></td></tr></table></figure>
+<h2 id="远端推送"><a href="#远端推送" class="headerlink" title="远端推送"></a>远端推送</h2><p>这一步是将远程仓库和本地仓库关联起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$git remote add origin git@gitee.com:vtghsr/NEU-EDU-HIS.git </span><br><span class="line">$git push -u origin master</span><br></pre></td></tr></table></figure>
 
 <p>以后再次推送本仓库内容到远端，只需要执行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$git push origin master</span><br></pre></td></tr></table></figure>
@@ -190,6 +191,28 @@
 
 <h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$git checkout &lt;name&gt;</span><br></pre></td></tr></table></figure>
 
+<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><h3 id="查看版本号"><a href="#查看版本号" class="headerlink" title="查看版本号"></a>查看版本号</h3><p><code>HEAD</code>指向的版本是当前版本，上一个版本是<code>HEAD^</code>，上上一个版本是<code>HEAD^^</code></p>
+<p>回退前，查看提交历史，以便确定要回退到哪个版本（也可以在github网站上查看）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$git log</span><br></pre></td></tr></table></figure>
+
+<p>要重返未来，要查看历史命令，以便确定回到未来哪个版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$git reflog</span><br></pre></td></tr></table></figure>
+
+<h3 id="回退"><a href="#回退" class="headerlink" title="回退"></a>回退</h3><p>回到上一个版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+
+<p>回退到某一个历史版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$git reset --hard commit_id</span><br></pre></td></tr></table></figure>
+
+<p>注意这种方式只回退本地的代码，远程仓库代码没回退。当你把本地代码修改完push时会产生冲突（因为远程代码比本地新）。</p>
+<p>A-&gt;B-&gt;C，想回到B，reset到B，丢失C</p>
+<p><strong>适用场景：</strong>想恢复到之前提交的某个版本，且那个版本之后提交的版本都不想要了（比如C中不小心上传了密码，需要删除版本C）</p>
+<h3 id="反做"><a href="#反做" class="headerlink" title="反做"></a>反做</h3><p>A-&gt;B-&gt;C，想回到B，不想丢失C，revert B，变成</p>
+<p>A-&gt;B-&gt;C-&gt;B</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$git revert commit_id</span><br></pre></td></tr></table></figure>
+
+<p>这种方式也是只改变了本地的代码，要想改变远程代码，还需要用<code>git push origin branch_name</code>推送到远端</p>
+<p><strong>适用场景：</strong>想恢复到之前提交的某个版本，且那个版本之后的版本还想要</p>
 
       
 
@@ -304,18 +327,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/09/Vue前后端通信错误/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/07/12/java.sql/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Vue前后端通信错误
+          java sql报错
         
       </div>
     </a>
   
   
-    <a href="/2020/05/18/vim常用键/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vim常用键</div>
+    <a href="/2020/07/09/Vue前后端通信错误/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue前后端通信错误</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -358,7 +381,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 MaLing
+    		&copy; 2021 MaLing
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -437,7 +460,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">观影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -449,19 +480,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">读书</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">观影</a>
               </li>
              
               <li class="article-tag-list-item">
