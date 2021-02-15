@@ -80,7 +80,7 @@
 					<a class="mail" target="_blank" href="/1027103594@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
-		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=228 height=86 src="//music.163.com/outchain/player?type=2&id=4899152&auto=1&height=66"></iframe>
+		<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=228 height=86 src="//music.163.com/outchain/player?type=2&id=4899152&auto=1&height=66"></iframe> -->
 		</nav>
 	</header>		
 </div>
@@ -596,40 +596,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-
-<p>[TOC]</p>
-<h2 id="什么是贪心"><a href="#什么是贪心" class="headerlink" title="什么是贪心"></a>什么是贪心</h2><p>贪心的本质是<strong>选择每一阶段的局部最优，从而达到全局最优</strong></p>
-<h2 id="什么时候用贪心"><a href="#什么时候用贪心" class="headerlink" title="什么时候用贪心"></a>什么时候用贪心</h2><ul>
-<li>自己手动模拟，模拟可行就可以试一试贪心策略，不可行就需要动态规划</li>
-<li>举反例，想不到反例，就试一试贪心</li>
-</ul>
-<p>说白了就是<strong>常识性推导</strong>+<strong>举反例</strong></p>
-<h2 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h2><ul>
-<li>划分子问题</li>
-<li>找出适合的贪心策略</li>
-<li>求解每一个子问题的最优解</li>
-<li>将局部最优解堆叠成全局最优解</li>
-</ul>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p><a href="https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons/" target="_blank" rel="noopener">用最少数量的箭引爆气球</a></p>
-<p><a href="https://leetcode-cn.com/problems/reorganize-string/" target="_blank" rel="noopener">重构字符串</a></p>
-<p><a href="https://leetcode-cn.com/problems/score-after-flipping-matrix/" target="_blank" rel="noopener">翻转矩阵后的得分</a></p>
-<p><strong>思路</strong></p>
-<p>先行翻转，使第一列都为1</p>
-<p>再进行列反转，使每一列的1比0多</p>
-<p><strong>证明</strong></p>
-<p>对于每一行表示的n位二进制数，我们可以证明最高位为1的数恒大于最高位为0的数：</p>
-<p>最高位为1的最小n位二进制数是0b10000…00，最高位为0的最大n位数为0b01111…11,前者等于2^(n-1)</p>
-<p>后者等于2^(n-1)-1</p>
-<p>每一行最高位都为1以后，接下来只需要使每一列1的个数大于0的个数，这样得分就会最大</p>
-<p><a href="https://leetcode-cn.com/problems/lemonade-change/" target="_blank" rel="noopener">柠檬水找零</a></p>
-<p><strong>思路</strong></p>
-<p>找钱时，优先找大面值的，因为小面值的更常用</p>
-<p><a href="https://leetcode-cn.com/problems/dota2-senate/" target="_blank" rel="noopener">Dota2参议院</a></p>
-<p><strong>思路</strong></p>
-<p>R让离他最近的D失去权力，D亦然。</p>
-<p>这里，「最近」体现了贪心的思想，在实际游戏中，我们的直觉也会告诉我们这样做。</p>
-
+        <p>贪心的本质是<strong>选择每一阶段的局部最优，从而达到全局最优</strong></p>
+        
+          <a class="article-more-a" href="/2020/11/24/贪心/#more">more >></a>
+        
       
 
       
@@ -987,10 +957,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">观影</a>
               </li>
              
@@ -999,11 +965,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1011,7 +973,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">

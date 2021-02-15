@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>贪心 | MaLing&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[TOC] 什么是贪心贪心的本质是选择每一阶段的局部最优，从而达到全局最优 什么时候用贪心 自己手动模拟，模拟可行就可以试一试贪心策略，不可行就需要动态规划 举反例，想不到反例，就试一试贪心  说白了就是常识性推导+举反例 解题步骤 划分子问题 找出适合的贪心策略 求解每一个子问题的最优解 将局部最优解堆叠成全局最优解  例题用最少数量的箭引爆气球 重构字符串 翻转矩阵后的得分 思路 先行翻转">
+  <meta name="description" content="贪心的本质是选择每一阶段的局部最优，从而达到全局最优">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="贪心">
 <meta property="og:url" content="http://yoursite.com/2020/11/24/贪心/index.html">
 <meta property="og:site_name" content="MaLing&#39;s blog">
-<meta property="og:description" content="[TOC] 什么是贪心贪心的本质是选择每一阶段的局部最优，从而达到全局最优 什么时候用贪心 自己手动模拟，模拟可行就可以试一试贪心策略，不可行就需要动态规划 举反例，想不到反例，就试一试贪心  说白了就是常识性推导+举反例 解题步骤 划分子问题 找出适合的贪心策略 求解每一个子问题的最优解 将局部最优解堆叠成全局最优解  例题用最少数量的箭引爆气球 重构字符串 翻转矩阵后的得分 思路 先行翻转">
+<meta property="og:description" content="贪心的本质是选择每一阶段的局部最优，从而达到全局最优">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-12-20T13:22:51.006Z">
+<meta property="og:updated_time" content="2021-02-15T11:43:22.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贪心">
-<meta name="twitter:description" content="[TOC] 什么是贪心贪心的本质是选择每一阶段的局部最优，从而达到全局最优 什么时候用贪心 自己手动模拟，模拟可行就可以试一试贪心策略，不可行就需要动态规划 举反例，想不到反例，就试一试贪心  说白了就是常识性推导+举反例 解题步骤 划分子问题 找出适合的贪心策略 求解每一个子问题的最优解 将局部最优解堆叠成全局最优解  例题用最少数量的箭引爆气球 重构字符串 翻转矩阵后的得分 思路 先行翻转">
+<meta name="twitter:description" content="贪心的本质是选择每一阶段的局部最优，从而达到全局最优">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -85,7 +85,7 @@
 					<a class="mail" target="_blank" href="/1027103594@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
-		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=228 height=86 src="//music.163.com/outchain/player?type=2&id=4899152&auto=1&height=66"></iframe>
+		<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=228 height=86 src="//music.163.com/outchain/player?type=2&id=4899152&auto=1&height=66"></iframe> -->
 		</nav>
 	</header>		
 </div>
@@ -166,7 +166,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <p>贪心的本质是<strong>选择每一阶段的局部最优，从而达到全局最优</strong></p>
+<a id="more"></a>
 
 <p>[TOC]</p>
 <h2 id="什么是贪心"><a href="#什么是贪心" class="headerlink" title="什么是贪心"></a>什么是贪心</h2><p>贪心的本质是<strong>选择每一阶段的局部最优，从而达到全局最优</strong></p>
@@ -344,6 +345,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是贪心"><span class="toc-number">1.</span> <span class="toc-text">什么是贪心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么时候用贪心"><span class="toc-number">2.</span> <span class="toc-text">什么时候用贪心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题步骤"><span class="toc-number">3.</span> <span class="toc-text">解题步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例题"><span class="toc-number">4.</span> <span class="toc-text">例题</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -446,10 +460,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">观影</a>
               </li>
              
@@ -458,11 +468,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -470,7 +476,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
