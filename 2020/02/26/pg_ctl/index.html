@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="MaLing&#39;s blog">
 <meta property="og:description" content="pg_ctl是PostgreSQL数据库自带的实用工具，具有以下功能：">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/pg_ctl-1.jpg">
-<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/pg_ctl-2.jpg">
-<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/pg_ctl-3.jpg">
-<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/pg_ctl-4.jpg">
-<meta property="og:updated_time" content="2021-03-09T08:03:55.745Z">
+<meta property="og:image" content="https://vtghsr.github.io/assets/img/pg_ctl-1.jpg">
+<meta property="og:image" content="https://vtghsr.github.io/assets/img/pg_ctl-2.jpg">
+<meta property="og:image" content="https://vtghsr.github.io/assets/img/pg_ctl-3.jpg">
+<meta property="og:image" content="https://vtghsr.github.io/assets/img/pg_ctl-4.jpg">
+<meta property="og:updated_time" content="2021-03-09T08:12:04.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pg_ctl">
 <meta name="twitter:description" content="pg_ctl是PostgreSQL数据库自带的实用工具，具有以下功能：">
-<meta name="twitter:image" content="c:/hexo%20workspace/source/assets/img/pg_ctl-1.jpg">
+<meta name="twitter:image" content="https://vtghsr.github.io/assets/img/pg_ctl-1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -184,16 +184,16 @@
 </ol>
 <h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>使用pg_ctl需要配置环境变量</p>
 <p>添加系统变量PG和PGDATA,PGDATA变量值是PostgreSQL存放数据的目录</p>
-<img src="C:\hexo workspace\source\assets\img\pg_ctl-1.jpg" style="zoom:50%;">
+<img src="https://vtghsr.github.io/assets/img/pg_ctl-1.jpg" alt="https://vtghsr.github.io/assets/img/pg_ctl-1.jpg" style="zoom:50%;">
 
 <p>在系统变量Path里追加<code>%PG%\bin</code></p>
-<img src="C:\hexo workspace\source\assets\img\pg_ctl-2.jpg" style="zoom:50%;">
+<img src="https://vtghsr.github.io/assets/img/pg_ctl-2.jpg" alt="https://vtghsr.github.io/assets/img/pg_ctl-2.jpg" style="zoom:50%;">
 
 <p><code>%PG%\bin</code>目录里有很多可执行文件，其中就包括pg_ctl.exe</p>
-<img src="C:\hexo workspace\source\assets\img\pg_ctl-3.jpg" style="zoom:50%;">
+<img src="https://vtghsr.github.io/assets/img/pg_ctl-3.jpg" alt="https://vtghsr.github.io/assets/img/pg_ctl-3.jpg" style="zoom:50%;">
 
 <h2 id="使用pg-ctl命令"><a href="#使用pg-ctl命令" class="headerlink" title="使用pg_ctl命令"></a>使用pg_ctl命令</h2><p>以管理员身份运行操作系统命令行</p>
-<img src="C:\hexo workspace\source\assets\img\pg_ctl-4.jpg" style="zoom:50%;">
+<img src="https://vtghsr.github.io/assets/img/pg_ctl-4.jpg" alt="https://vtghsr.github.io/assets/img/pg_ctl-4.jpg" style="zoom:50%;">
 
 <p>pg_ctl常用命令如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pg_ctl init[db] [-D DATADIR] [-s] [-o OPTIONS]</span><br><span class="line">pg_ctl start    [-D DATADIR] [-l FILENAME] [-W] [-t SECS] [-s] [-o OPTIONS] [-p PATH] [-c]</span><br><span class="line">pg_ctl stop     [-D DATADIR] [-m SHUTDOWN-MODE] [-W] [-t SECS] [-s]</span><br><span class="line">pg_ctl restart  [-D DATADIR] [-m SHUTDOWN-MODE] [-W] [-t SECS] [-s] [-o OPTIONS] [-c]</span><br><span class="line">pg_ctl reload   [-D DATADIR] [-s]</span><br><span class="line">pg_ctl status   [-D DATADIR]</span><br><span class="line">pg_ctl promote  [-D DATADIR] [-W] [-t SECS] [-s]</span><br><span class="line">pg_ctl kill     SIGNALNAME PID</span><br></pre></td></tr></table></figure>
@@ -312,20 +312,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/02/26/PostgreSQL参数的查看和修改/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/02/26/join控制规划器/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          PostgreSQL参数的查看和修改
+          join控制规划器
         
       </div>
     </a>
   
-  
-    <a href="/2020/02/26/join控制规划器/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">join控制规划器</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -458,7 +453,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">观影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,15 +469,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">观影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
