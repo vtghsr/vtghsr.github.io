@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="MaLing&#39;s blog">
 <meta property="og:description" content="查看参数文件的位置  查看当前会话的参数值  修改pg的参数值对于9.4以后的版本，可以使用alter system命令修改参数。使用alter system命令修改的是postgresql.auto.conf文件，而不是postgresql.conf，这样可以很好的保护postgresql.conf文件，假如你使用很多alter system命令后搞得一团糟，那么只需要清空postgresq">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/PostgreSQL参数的查看和修改-1.PNG">
-<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/PostgreSQL参数的查看和修改-2.PNG">
-<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/PostgreSQL参数的查看和修改-3.PNG">
-<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/PostgreSQL参数的查看和修改-4.PNG">
-<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/PostgreSQL参数的查看和修改-5.PNG">
-<meta property="og:updated_time" content="2021-02-26T15:50:00.921Z">
+<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/PostgreSQL参数的查看和修改-1.jpg">
+<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/PostgreSQL参数的查看和修改-2.jpg">
+<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/PostgreSQL参数的查看和修改-3.jpg">
+<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/PostgreSQL参数的查看和修改-4.jpg">
+<meta property="og:image" content="c:/hexo%20workspace/source/assets/img/PostgreSQL参数的查看和修改-5.jpg">
+<meta property="og:updated_time" content="2021-03-09T08:03:29.940Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PostgreSQL参数的查看和修改">
 <meta name="twitter:description" content="查看参数文件的位置  查看当前会话的参数值  修改pg的参数值对于9.4以后的版本，可以使用alter system命令修改参数。使用alter system命令修改的是postgresql.auto.conf文件，而不是postgresql.conf，这样可以很好的保护postgresql.conf文件，假如你使用很多alter system命令后搞得一团糟，那么只需要清空postgresq">
-<meta name="twitter:image" content="c:/hexo%20workspace/source/assets/img/PostgreSQL参数的查看和修改-1.PNG">
+<meta name="twitter:image" content="c:/hexo%20workspace/source/assets/img/PostgreSQL参数的查看和修改-1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MaLing&#39;s blog" type="application/atom+xml">
   
@@ -174,18 +174,18 @@
       
         <a id="more"></a>
 
-<h2 id="查看参数文件的位置"><a href="#查看参数文件的位置" class="headerlink" title="查看参数文件的位置"></a>查看参数文件的位置</h2><img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-1.PNG" style="zoom:50%;">
+<h2 id="查看参数文件的位置"><a href="#查看参数文件的位置" class="headerlink" title="查看参数文件的位置"></a>查看参数文件的位置</h2><img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-1.jpg" style="zoom:50%;">
 
-<h2 id="查看当前会话的参数值"><a href="#查看当前会话的参数值" class="headerlink" title="查看当前会话的参数值"></a>查看当前会话的参数值</h2><img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-2.PNG" style="zoom:50%;">
+<h2 id="查看当前会话的参数值"><a href="#查看当前会话的参数值" class="headerlink" title="查看当前会话的参数值"></a>查看当前会话的参数值</h2><img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-2.jpg" style="zoom:50%;">
 
 <h2 id="修改pg的参数值"><a href="#修改pg的参数值" class="headerlink" title="修改pg的参数值"></a>修改pg的参数值</h2><p>对于9.4以后的版本，可以使用<code>alter system</code>命令修改参数。使用<code>alter system</code>命令修改的是postgresql.auto.conf文件，而不是postgresql.conf，这样可以很好的保护postgresql.conf文件，假如你使用很多<code>alter system</code>命令后搞得一团糟，那么只需要清空postgresql.auto.conf再重新加载即可。</p>
-<img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-3.PNG" style="zoom:50%;">
+<img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-3.jpg" style="zoom:50%;">
 
 <p>使用<code>pg_ctl reload</code>重新加载配置文件</p>
-<img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-4.PNG" style="zoom:50%;">
+<img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-4.jpg" style="zoom:50%;">
 
 <p>再查看参数值，修改成功</p>
-<img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-5.PNG" style="zoom:50%;">
+<img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-5.jpg" style="zoom:50%;">
       
 
       
@@ -309,8 +309,8 @@
     </a>
   
   
-    <a href="/2020/02/26/join控制规划器/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">join控制规划器</div>
+    <a href="/2020/02/26/pg_ctl/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pg_ctl</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -449,6 +449,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">观影</a>
               </li>
              
@@ -458,10 +462,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">

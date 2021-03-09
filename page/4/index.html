@@ -165,90 +165,18 @@
       
         <a id="more"></a>
 
-<h2 id="查看参数文件的位置"><a href="#查看参数文件的位置" class="headerlink" title="查看参数文件的位置"></a>查看参数文件的位置</h2><img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-1.PNG" style="zoom:50%;">
+<h2 id="查看参数文件的位置"><a href="#查看参数文件的位置" class="headerlink" title="查看参数文件的位置"></a>查看参数文件的位置</h2><img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-1.jpg" style="zoom:50%;">
 
-<h2 id="查看当前会话的参数值"><a href="#查看当前会话的参数值" class="headerlink" title="查看当前会话的参数值"></a>查看当前会话的参数值</h2><img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-2.PNG" style="zoom:50%;">
+<h2 id="查看当前会话的参数值"><a href="#查看当前会话的参数值" class="headerlink" title="查看当前会话的参数值"></a>查看当前会话的参数值</h2><img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-2.jpg" style="zoom:50%;">
 
 <h2 id="修改pg的参数值"><a href="#修改pg的参数值" class="headerlink" title="修改pg的参数值"></a>修改pg的参数值</h2><p>对于9.4以后的版本，可以使用<code>alter system</code>命令修改参数。使用<code>alter system</code>命令修改的是postgresql.auto.conf文件，而不是postgresql.conf，这样可以很好的保护postgresql.conf文件，假如你使用很多<code>alter system</code>命令后搞得一团糟，那么只需要清空postgresql.auto.conf再重新加载即可。</p>
-<img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-3.PNG" style="zoom:50%;">
+<img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-3.jpg" style="zoom:50%;">
 
 <p>使用<code>pg_ctl reload</code>重新加载配置文件</p>
-<img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-4.PNG" style="zoom:50%;">
+<img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-4.jpg" style="zoom:50%;">
 
 <p>再查看参数值，修改成功</p>
-<img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-5.PNG" style="zoom:50%;">
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-join控制规划器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/26/join控制规划器/">join控制规划器</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/26/join控制规划器/" class="archive-article-date">
-  	<time datetime="2020-02-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在连接查询里，如</p>
-        
-          <a class="article-more-a" href="/2020/02/26/join控制规划器/#more">more >></a>
-        
+<img src="C:\hexo workspace\source\assets\img\PostgreSQL参数的查看和修改-5.jpg" style="zoom:50%;">
       
 
       
@@ -320,6 +248,78 @@
         <p>pg_ctl是PostgreSQL数据库自带的实用工具，具有以下功能：</p>
         
           <a class="article-more-a" href="/2020/02/26/pg_ctl/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-join控制规划器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/26/join控制规划器/">join控制规划器</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/26/join控制规划器/" class="archive-article-date">
+  	<time datetime="2020-02-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在连接查询里，如</p>
+        
+          <a class="article-more-a" href="/2020/02/26/join控制规划器/#more">more >></a>
         
       
 
@@ -466,6 +466,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">观影</a>
               </li>
              
@@ -475,10 +479,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
