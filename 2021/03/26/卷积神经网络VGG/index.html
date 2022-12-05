@@ -17,7 +17,7 @@
 <meta property="og:description" content="VGG名字来源于论文作者所在的实验室Visual GeoMetry Group。VGG提出了可以通过重复使用简单的基础块来构建深度模型的思路。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://vtghsr.github.io/assets/img/VGG-1%22%E5%9B%BE1%22">
-<meta property="og:updated_time" content="2021-03-26T13:50:42.316Z">
+<meta property="og:updated_time" content="2021-04-08T01:17:43.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="卷积神经网络|VGG">
 <meta name="twitter:description" content="VGG名字来源于论文作者所在的实验室Visual GeoMetry Group。VGG提出了可以通过重复使用简单的基础块来构建深度模型的思路。">
@@ -174,7 +174,7 @@
 <h2 id="VGG块"><a href="#VGG块" class="headerlink" title="VGG块"></a>VGG块</h2><p>VGG块的组成规律是：连续使用数个填充为1、窗口形状为3×3的卷积层后接上一个步幅为2、窗口形状为2×2的最大池化层。卷积层保持输入的高和宽不变，而池化层对其减半。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">Sequential(</span><br><span class="line">  (vgg_block1): Sequential(</span><br><span class="line">    (0): Conv2d(1, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))</span><br><span class="line">    (1): ReLU()</span><br><span class="line">    (2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)</span><br><span class="line">  )</span><br><span class="line">  (vgg_block2): Sequential(</span><br><span class="line">    (0): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))</span><br><span class="line">    (1): ReLU()</span><br><span class="line">    (2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)</span><br><span class="line">  )</span><br><span class="line">  (vgg_block3): Sequential(</span><br><span class="line">    (0): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))</span><br><span class="line">    (1): ReLU()</span><br><span class="line">    (2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))</span><br><span class="line">    (3): ReLU()</span><br><span class="line">    (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)</span><br><span class="line">  )</span><br><span class="line">  (vgg_block4): Sequential(</span><br><span class="line">    (0): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))</span><br><span class="line">    (1): ReLU()</span><br><span class="line">    (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))</span><br><span class="line">    (3): ReLU()</span><br><span class="line">    (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)</span><br><span class="line">  )</span><br><span class="line">  (vgg_block5): Sequential(</span><br><span class="line">    (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))</span><br><span class="line">    (1): ReLU()</span><br><span class="line">    (2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))</span><br><span class="line">    (3): ReLU()</span><br><span class="line">    (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)</span><br><span class="line">  )</span><br><span class="line">  (fc): Sequential(</span><br><span class="line">    (0): FlattenLayer()</span><br><span class="line">    (1): Linear(in_features=25088, out_features=4096, bias=True)</span><br><span class="line">    (2): ReLU()</span><br><span class="line">    (3): Dropout(p=0.5, inplace=False)</span><br><span class="line">    (4): Linear(in_features=4096, out_features=4096, bias=True)</span><br><span class="line">    (5): ReLU()</span><br><span class="line">    (6): Dropout(p=0.5, inplace=False)</span><br><span class="line">    (7): Linear(in_features=4096, out_features=10, bias=True)</span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<h2 id="VGG网络"><a href="#VGG网络" class="headerlink" title="VGG网络"></a>VGG网络</h2><p>每经过一个VGG块，样本的高和宽减半，输出通道翻倍。设输出通道数是<code>co</code>，输入通道数是<code>ci</code>，样本的高和宽是<code>h</code>和<code>w</code>，卷积核的高和宽是<code>kh</code>和<code>kw</code>。可得出卷积核的形状是<code>co*ci*kh*kw</code>，互运算的次数是<code>co*ci*(h-kh+1)*(w-kw+1)</code>（步长是1，无填充）。<br>由此可看出，互运算的次数和<code>h*w*ci*co</code>成正比。VGG的这种<strong>高和宽减半</strong>，<strong>通道翻倍</strong>的设计使得多数卷积层具有相同的模型参数尺寸和计算复杂度。</p>
+<h2 id="VGG网络"><a href="#VGG网络" class="headerlink" title="VGG网络"></a>VGG网络</h2><p>每经过一个VGG块，样本的高和宽减半，输出通道翻倍。设输出通道数是<code>co</code>，输入通道数是<code>ci</code>，样本的高和宽是<code>h</code>和<code>w</code>，卷积核的高和宽是<code>kh</code>和<code>kw</code>，填充是<code>padding</code>，步长是1。可得出卷积核的形状是<code>co*ci*kh*kw</code>，互运算的次数是<code>co*ci*(h-kh+1)*(w-kw+1)</code>。<br>由此可看出，互运算的次数和<code>h*w*ci*co</code>成正比。VGG的这种<strong>高和宽减半</strong>，<strong>通道翻倍</strong>的设计使得多数卷积层具有相同的模型参数尺寸和计算复杂度。</p>
 <h2 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h2><p>二维卷积层中，与输出数组中元素x有关的输入区域叫做<em>x</em>的「感受野」(receptive field)。图1中，输入中阴影部分的四个元素是输出中阴影部分元素的感受野。我们把图1中2×2的输出记为<em>Y</em>，并考虑一个更深的卷积网络：将<em>Y</em>与另一个形状为2×2的卷积核做互相关运算，输出单个元素<em>z</em>。那么，<em>z</em>在<em>Y</em>上的感受野包括<em>Y</em>的全部四个元素，在输入上的感受野包括其中全部9个元素。可见，我们可以<strong>通过更深的卷积网络使特征图中单个元素的感受野变得更加广阔，从而捕捉输入上更大尺寸的特征</strong>。</p>
 <p><img src="https://vtghsr.github.io/assets/img/VGG-1%22%E5%9B%BE1%22" alt="image-1.jpg"></p>
 <p>VGG网络整个输出的感受野是整个输入，但是随着网络深度的增加，单个元素的感受野越来越大。在设计网络时采用堆积的小卷积核优于采用大的卷积核，因为可以增加网络深度来保证学习更复杂的模式。</p>
@@ -292,9 +292,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2021/04/13/Vue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
-    <a href="/2021/02/16/我与地坛/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我与地坛</div>
+  
+    <a href="/2021/02/26/pg_ctl/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pg_ctl</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -350,7 +359,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 MaLing
+    		&copy; 2022 MaLing
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -433,7 +442,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -441,7 +450,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,11 +466,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">读书</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">神经网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">读书</a>
+                <a href="javascript:void(0)" class="js-tag color4">算法图各种数据结构的具体Java实现</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -470,6 +483,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率图</a>
               </li>
             
             <div class="clearfix"></div>
